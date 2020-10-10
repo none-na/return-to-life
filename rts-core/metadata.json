@@ -1,0 +1,9 @@
+{
+    "name": "RTS Core",
+    "description": "A compilation of various libraries and systems developed by Sivelos for his mods.",
+    "internalname": "RTSCore",
+    "version": "1.0.2",
+    "author": "Sivelos",
+    "mpcompat": true,
+	"dependencies": []
+}

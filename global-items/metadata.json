@@ -1,0 +1,9 @@
+{
+    "name": "Global Items",
+    "description": "Allows non-player actors to have items.\n\nProfile Flags:\n\nhotkey_display_inventory_[key]: Setting this flag makes it so that enemy inventories can be displayed by pressing whatever key you assign.",
+    "internalname": "GlobalItems",
+    "version": "0.1",
+    "author": "Sivelos",
+    "mpcompat": true,
+	"dependencies": []
+}

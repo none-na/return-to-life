@@ -6,7 +6,7 @@
 local pearl = Item("Pearl")
 pearl.pickupText = "Increases maximum health by 10%."
 
-pearl.sprite = Sprite.load("Items/pearl.png", 1, 16, 16)
+pearl.sprite = Sprite.load("Items/boss/Graphics/pearl.png", 1, 16, 16)
 --pearl:setTier("uncommon")
 
 pearl:setLog{
@@ -32,7 +32,7 @@ GlobalItem.items[pearl] = {
 local superPearl = Item("Irradiant Pearl")
 superPearl.pickupText = "Increases ALL stats by 10%."
 
-superPearl.sprite = Sprite.load("Items/pearl2.png", 1, 16, 16)
+superPearl.sprite = Sprite.load("Items/boss/Graphics/pearl2.png", 1, 16, 16)
 --pearl:setTier("uncommon")
 
 superPearl:setLog{

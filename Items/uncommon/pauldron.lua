@@ -6,7 +6,7 @@
 local pauldron = Item("Bezerker's Pauldron")
 pauldron.pickupText = "Sends you into a frenzy after killing 3 enemies within 1 second."
 
-pauldron.sprite = Sprite.load("Items/pauldron.png", 1, 16, 16)
+pauldron.sprite = Sprite.load("Items/uncommon/Graphics/pauldron.png", 1, 16, 16)
 pauldron:setTier("uncommon")
 
 pauldron:setLog{

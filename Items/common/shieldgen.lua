@@ -6,7 +6,7 @@
 local shieldgen = Item("Personal Shield Generator")
 shieldgen.pickupText = "Gain a small, regenerating shield."
 
-shieldgen.sprite = Sprite.load("Items/shieldgen.png", 1, 16, 16)
+shieldgen.sprite = Sprite.load("Items/common/Graphics/shieldgen.png", 1, 16, 16)
 
 shieldgen:setTier("common")
 shieldgen:setLog{

@@ -6,7 +6,7 @@
 local item = Item("Repulsion Armor Plate")
 item.pickupText = "Recieve flat damage reduction from all attacks."
 
-item.sprite = Sprite.load("Items/armorPlate.png", 1, 16, 16)
+item.sprite = Sprite.load("Items/common/Graphics/armorPlate.png", 1, 16, 16)
 
 item:setTier("common")
 item:setLog{

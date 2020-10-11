@@ -9,7 +9,7 @@ local itemsToLoad = {
 
 for tier, table in pairs(itemsToLoad) do
   for _, item in ipairs(table) do
-    restre_require(tier..[[\]]..item)
     print(tier..[[\]]..item)
+    restre_require(tier..[[\]]..item)
   end
 end

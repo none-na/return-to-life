@@ -6,7 +6,7 @@
 local item = Item("Cautious Slug")
 item.pickupText = "Increases health regeneration out of combat."
 
-item.sprite = Sprite.load("Items/slug.png", 1, 16, 16)
+item.sprite = Sprite.load("Items/common/Graphics/slug.png", 1, 16, 16)
 
 item:setTier("common")
 item:setLog{

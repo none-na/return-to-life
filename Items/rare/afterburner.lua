@@ -8,7 +8,7 @@ require("Libraries.abilitylib")
 local afterburner = Item("Hardlight Afterburner")
 afterburner.pickupText = "Adds 2 extra uses to your third skill."
 
-afterburner.sprite = Sprite.load("Items/afterburner.png", 1, 16, 16)
+afterburner.sprite = Sprite.load("Items/rare/Graphics/afterburner.png", 1, 16, 16)
 
 afterburner:setTier("rare")
 afterburner:setLog{

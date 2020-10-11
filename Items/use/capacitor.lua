@@ -6,7 +6,7 @@
 local capacitor = Item("Royal Capacitor")
 capacitor.pickupText = "Strikes most recently hit enemy with lightning."
 
-capacitor.sprite = Sprite.load("Items/capacitor.png", 2, 13, 14)
+capacitor.sprite = Sprite.load("Items/use/Graphics/capacitor.png", 2, 13, 14)
 
 capacitor.isUseItem = true
 capacitor.useCooldown = 20

@@ -6,7 +6,7 @@
 local chrysalis = Item("Milky Chrysalis")
 chrysalis.pickupText = "Obtain temporary flight."
 
-chrysalis.sprite = Sprite.load("Items/chrysalis.png", 2, 12, 16)
+chrysalis.sprite = Sprite.load("Items/use/Graphics/chrysalis.png", 2, 12, 16)
 chrysalis:setTier("use")
 
 chrysalis.isUseItem = true

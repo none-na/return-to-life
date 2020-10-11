@@ -6,7 +6,7 @@
 local shield = Item("Rose Buckler")
 shield.pickupText = "Reduce incoming damage while moving."
 
-shield.sprite = Sprite.load("Items/buckler.png", 1, 16, 16)
+shield.sprite = Sprite.load("Items/uncommon/Graphics/buckler.png", 1, 16, 16)
 
 shield:setTier("uncommon")
 shield:setLog{

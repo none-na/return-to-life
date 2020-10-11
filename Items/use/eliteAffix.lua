@@ -7,7 +7,7 @@ local useSound = Sound.find("Pickup", "vanilla")
 
 affixRed = Item("Ifrit's Distinction")
 affixRed.pickupText = "Become an Aspect of Fire."
-affixRed.sprite = Sprite.load("Items/affixRed", 2, 16, 16)
+affixRed.sprite = Sprite.load("Items/use/Graphics/affixRed", 2, 16, 16)
 affixRed.isUseItem = true
 affixRed.useCooldown = 0
 affixRed:addCallback("pickup", function(player)
@@ -22,7 +22,7 @@ export("affixRed")
 
 affixBlue = Item("Silence Between Two Strikes")
 affixBlue.pickupText = "Become an Aspect of Lightning."
-affixBlue.sprite = Sprite.load("Items/affixBlue", 2, 16, 16)
+affixBlue.sprite = Sprite.load("Items/use/Graphics/affixBlue", 2, 16, 16)
 affixBlue.isUseItem = true
 affixBlue.useCooldown = 0
 affixBlue:addCallback("pickup", function(player)
@@ -37,7 +37,7 @@ export("affixBlue")
 
 affixYellow = Item("In The Blink Of An Eye")
 affixYellow.pickupText = "Become an Aspect of Speed."
-affixYellow.sprite = Sprite.load("Items/affixYellow", 2, 16, 16)
+affixYellow.sprite = Sprite.load("Items/use/Graphics/affixYellow", 2, 16, 16)
 affixYellow.isUseItem = true
 affixYellow.useCooldown = 0
 affixYellow:addCallback("pickup", function(player)
@@ -56,7 +56,7 @@ export("affixYellow")
 
 affixOrange = Item("Hairpin Trigger")
 affixOrange.pickupText = "Become an Aspect of Destruction."
-affixOrange.sprite = Sprite.load("Items/affixOrange", 2, 16, 16)
+affixOrange.sprite = Sprite.load("Items/use/Graphics/affixOrange", 2, 16, 16)
 affixOrange.isUseItem = true
 affixOrange.useCooldown = 0
 affixOrange:addCallback("pickup", function(player)
@@ -71,7 +71,7 @@ export("affixOrange")
 
 affixGreen = Item("Parasitic Relations")
 affixGreen.pickupText = "Become an Aspect of Life."
-affixGreen.sprite = Sprite.load("Items/affixGreen", 2, 16, 16)
+affixGreen.sprite = Sprite.load("Items/use/Graphics/affixGreen", 2, 16, 16)
 affixGreen.isUseItem = true
 affixGreen.useCooldown = 0
 affixGreen:addCallback("pickup", function(player)
@@ -87,7 +87,7 @@ export("affixGreen")
 
 affixWhite = Item("Her Biting Embrace")
 affixWhite.pickupText = "Become an Aspect of Ice."
-affixWhite.sprite = Sprite.load("Items/affixWhite", 2, 16, 16)
+affixWhite.sprite = Sprite.load("Items/use/Graphics/affixWhite", 2, 16, 16)
 affixWhite.isUseItem = true
 affixWhite.useCooldown = 0
 affixWhite:addCallback("pickup", function(player)
@@ -100,7 +100,7 @@ export("affixWhite")
 
 affixPoison = Item("N'Kuhana's Retort")
 affixPoison.pickupText = "Become an Aspect of Corruption."
-affixPoison.sprite = Sprite.load("Items/affixPoison", 2, 16, 16)
+affixPoison.sprite = Sprite.load("Items/use/Graphics/affixPoison", 2, 16, 16)
 affixPoison.isUseItem = true
 affixPoison.useCooldown = 0
 affixPoison:addCallback("pickup", function(player)
@@ -113,7 +113,7 @@ export("affixPoison")
 
 affixHaunted = Item("Spectral Circlet")
 affixHaunted.pickupText = "Become an Aspect of Incorporeality."
-affixHaunted.sprite = Sprite.load("Items/affixHaunted", 2, 16, 16)
+affixHaunted.sprite = Sprite.load("Items/use/Graphics/affixHaunted", 2, 16, 16)
 affixHaunted.isUseItem = true
 affixHaunted.useCooldown = 0
 affixHaunted:addCallback("pickup", function(player)
@@ -126,7 +126,7 @@ export("affixHaunted")
 
 affixGold = Item("Coven of Gold")
 affixGold.pickupText = "Become an Aspect of Fortune."
-affixGold.sprite = Sprite.load("Items/affixGold", 2, 16, 16)
+affixGold.sprite = Sprite.load("Items/use/Graphics/affixGold", 2, 16, 16)
 affixGold.isUseItem = true
 affixGold.useCooldown = 0
 affixGold:addCallback("pickup", function(player)

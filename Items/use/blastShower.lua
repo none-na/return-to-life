@@ -31,10 +31,10 @@ local affectedBuffs = {
     Buff.find("sunder4", "vanilla"),
     Buff.find("sunder5", "vanilla"),
     Buff.find("oil", "vanilla"),
-    Buff.find("Grieving", "RoR2Demake"),
-    Buff.find("iceSlow", "RoR2Demake"),
-    Buff.find("treeBotSnare", "RoR2Demake"),
-    Buff.find("treebotDebuff", "RoR2Demake"),
+    --Buff.find("Grieving", "RoR2Demake"),
+    --Buff.find("iceSlow", "RoR2Demake"),
+    --Buff.find("treeBotSnare", "RoR2Demake"),
+    --Buff.find("treebotDebuff", "RoR2Demake"),
 }
 
 AddBuffToBlastShower = function(buff)
@@ -60,7 +60,9 @@ local CleanseProc = function(actor, embryo)
             actor:removeBuff(buff)
         end
     end
-    Burned.Clear(actor)
+    if Burned then
+      Burned.Clear(actor)
+    end
     local immunity = 15
     if embryo then
         immunity = 30

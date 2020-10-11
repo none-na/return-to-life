@@ -1,0 +1,6 @@
+Backup Magazine (Common Item)
+
+
+damage text is not increased by armor penetrating rounds (common item)
+
+blast shower works but might need more buffs added

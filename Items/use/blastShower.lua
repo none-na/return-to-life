@@ -6,7 +6,7 @@
 local cleanse = Item("Blast Shower")
 cleanse.pickupText = "Cleanse all negative status ailments."
 
-cleanse.sprite = Sprite.load("Items/blastShower.png", 2, 14, 16)
+cleanse.sprite = Sprite.load("Items/use/GraphicsblastShower.png", 2, 14, 16)
 
 cleanse.isUseItem = true
 cleanse.useCooldown = 20

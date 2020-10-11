@@ -6,7 +6,7 @@
 local item = Item("Armor Piercing Rounds")
 item.pickupText = "Increases damage against bosses."
 
-item.sprite = Sprite.load("Items/aprounds.png", 1, 16, 16)
+item.sprite = Sprite.load("Items/common/Graphicsaprounds.png", 1, 16, 16)
 
 item:setTier("common")
 item:setLog{

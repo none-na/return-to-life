@@ -6,7 +6,7 @@
 local gland = Item("Queen's Gland")
 gland.pickupText = "Long live the queen."
 
-gland.sprite = Sprite.load("Items/queensGland.png", 1, 16, 16)
+gland.sprite = Sprite.load("Items/boss/Graphics/queensGland.png", 1, 16, 16)
 --gland:setTier("rare")
 
 gland:setLog{

@@ -6,7 +6,7 @@
 local hud = Item("Ocular HUD")
 hud.pickupText = "Gain 100% Critical Strike chance for 8 seconds."
 
-hud.sprite = Sprite.load("Items/hud.png", 2, 14, 16)
+hud.sprite = Sprite.load("Items/use/Graphicshud.png", 2, 14, 16)
 
 hud.isUseItem = true
 hud.useCooldown = 60

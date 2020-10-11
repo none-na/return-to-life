@@ -6,7 +6,7 @@
 local razorwire = Item("Razorwire")
 razorwire.pickupText = "Retaliate in a burst of razors on taking damage."
 
-razorwire.sprite = Sprite.load("Items/razorwire.png", 1, 16, 16)
+razorwire.sprite = Sprite.load("Items/uncommon/Graphicsrazorwire.png", 1, 16, 16)
 razorwire:setTier("uncommon")
 
 razorwire:setLog{

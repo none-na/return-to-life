@@ -6,7 +6,7 @@
 local catalyst = Item("Soulbound Catalyst")
 catalyst.pickupText = "Kills reduce use item cooldown by 4s."
 
-catalyst.sprite = Sprite.load("Items/catalyst.png", 1, 16, 16)
+catalyst.sprite = Sprite.load("Items/rare/Graphicscatalyst.png", 1, 16, 16)
 catalyst:setTier("rare")
 
 catalyst:setLog{

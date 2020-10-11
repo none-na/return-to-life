@@ -317,7 +317,7 @@ Lunar.register(flower)
 local strides = Item.new("Strides of Heresy")
 strides.displayName = "Strides of Heresy"
 strides.pickupText = "Replaces 3rd skill with Shadowfade."
-strides.sprite = Sprite.load("Items/strides", 1, 16, 16)
+strides.sprite = Sprite.load("Items/lunar/Graphicsstrides", 1, 16, 16)
 strides.color = LunarColor
 strides:setLog{
 	group = "end",
@@ -473,7 +473,7 @@ Lunar.register(strides)
 --Visions of Heresy--
 local visions = Item.new("Visions of Heresy")
 visions.pickupText = "Replaces 1st skill with Hungering Gaze."
-visions.sprite = Sprite.load("Items/visions", 1, 16, 16)
+visions.sprite = Sprite.load("Items/lunar/Graphicsvisions", 1, 16, 16)
 visions.color = LunarColor
 visions:setLog{
 	group = "end",

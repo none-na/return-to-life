@@ -6,7 +6,7 @@
 local goldseed = Item("Halcyon Seed")
 goldseed.pickupText = "Summons Aurelionite during the teleporter event."
 
-goldseed.sprite = Sprite.load("Items/goldSeed.png", 1, 16, 16)
+goldseed.sprite = Sprite.load("Items/boss/Graphics/goldSeed.png", 1, 16, 16)
 --goldseed:setTier("use")
 
 goldseed.color = "y"

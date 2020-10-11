@@ -6,7 +6,7 @@
 local radar = Item("Radar Scanner")
 radar.pickupText = "Reveal nearby interactibles."
 
-radar.sprite = Sprite.load("Items/radar.png", 2, 14, 16)
+radar.sprite = Sprite.load("Items/use/Graphicsradar.png", 2, 14, 16)
 
 radar.isUseItem = true
 radar.useCooldown = 45

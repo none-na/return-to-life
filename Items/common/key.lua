@@ -6,7 +6,7 @@
 local key = Item("Rusted Key")
 key.pickupText = "Gain access to a hidden lockbox containing treasure."
 
-key.sprite = Sprite.load("Items/key.png", 1, 16, 16)
+key.sprite = Sprite.load("Items/common/Graphicskey.png", 1, 16, 16)
 key:setTier("common")
 
 key:setLog{

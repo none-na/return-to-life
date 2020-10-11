@@ -6,7 +6,7 @@
 local disc = Item("Resonance Disc")
 disc.pickupText = "Obtain a Resonance Disc charged by killing enemies. Fires automatically when fully charged."
 
-disc.sprite = Sprite.load("Items/disc.png", 1, 16, 16)
+disc.sprite = Sprite.load("Items/rare/Graphicsdisc.png", 1, 16, 16)
 disc:setTier("rare")
 
 disc:setLog{

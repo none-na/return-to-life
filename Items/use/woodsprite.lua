@@ -6,7 +6,7 @@
 local woodsprite = Item("Gnarled Woodsprite")
 woodsprite.pickupText = "Heal over time. Activate to send to closest ally."
 
-woodsprite.sprite = Sprite.load("Items/woodsprite.png", 2, 10, 14)
+woodsprite.sprite = Sprite.load("Items/use/Graphicswoodsprite.png", 2, 10, 14)
 
 woodsprite.isUseItem = true
 woodsprite.useCooldown = 15

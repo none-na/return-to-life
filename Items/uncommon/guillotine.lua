@@ -6,7 +6,7 @@
 local guillotine = Item("Old Guillotine")
 guillotine.pickupText = "Instantly kill low health Elite monsters."
 
-guillotine.sprite = Sprite.load("Items/guillotine.png", 1, 16, 16)
+guillotine.sprite = Sprite.load("Items/uncommon/Graphicsguillotine.png", 1, 16, 16)
 guillotine:setTier("uncommon")
 
 guillotine:setLog{

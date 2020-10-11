@@ -6,7 +6,7 @@
 local quail = Item("Wax Quail")
 quail.pickupText = "Jumping while moving boosts you forwards."
 
-quail.sprite = Sprite.load("Items/quail.png", 1, 16, 16)
+quail.sprite = Sprite.load("Items/uncommon/Graphicsquail.png", 1, 16, 16)
 
 quail:setTier("uncommon")
 quail:setLog{

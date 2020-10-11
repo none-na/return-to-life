@@ -6,7 +6,7 @@
 local energyDrink = Item("Energy Drink")
 energyDrink.pickupText = "Increases movement speed after moving for 1.5 seconds."
 
-energyDrink.sprite = Sprite.load("Items/energyDrink.png", 1, 16, 16)
+energyDrink.sprite = Sprite.load("Items/common/GraphicsenergyDrink.png", 1, 16, 16)
 energyDrink:setTier("common")
 
 energyDrink:setLog{

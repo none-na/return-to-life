@@ -6,7 +6,7 @@
 local crowdfunder = Item("The Crowdfunder")
 crowdfunder.pickupText = "Toggle to rapid-fire. Costs gold per bullet."
 
-crowdfunder.sprite = Sprite.load("Items/crowdfunder.png", 2, 14, 16)
+crowdfunder.sprite = Sprite.load("Items/use/Graphicscrowdfunder.png", 2, 14, 16)
 
 crowdfunder.isUseItem = true
 crowdfunder.useCooldown = 0.2

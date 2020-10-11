@@ -6,7 +6,7 @@
 local item = Item("Death Mark")
 item.pickupText = "Enemies with four or more debuffs are marked for death, taking bonus damage."
 
-item.sprite = Sprite.load("Items/deathMark.png", 1, 16, 16)
+item.sprite = Sprite.load("Items/uncommon/GraphicsdeathMark.png", 1, 16, 16)
 
 item:setTier("uncommon")
 item:setLog{

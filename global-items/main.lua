@@ -14,12 +14,12 @@ local events = {
     ["apply"] = true,-- Takes in an instance and stack count. Applies the item to the instance.
                      -- If the actor obtains a use item, this function is called.
     ["step"] = true,--Takes in an instance and stack count. Runs in postStep.
-    ["remove"] = true,--Takes in an instance, a stack count, and a boolean. Removes a stack of the effects of the item from the instance. 
+    ["remove"] = true,--Takes in an instance, a stack count, and a boolean. Removes a stack of the effects of the item from the instance.
                       -- If the boolean is true, completely removes all stacks of effects from the instance.
                       -- If the actor loses its use item, then this function is called.
     ["use"] = true, --Takes in an instance, and whether or not Beating Embryo procced. Used for the effects of equipment.
     ["activation"] = true, -- Takes in an instance and stack count. Runs if the instance activates its equipment.
-                           -- NOTE: Please use "use" for the effects of equipment. 
+                           -- NOTE: Please use "use" for the effects of equipment.
                            -- This is for items that have an effect if ANY equipment is activated.
     ["draw"] = true,--Takes in an instance and stack count. Runs in onDraw.
     ["hit"] = true,--Takes in an instance, stack count, and the arguments for the onHit callback. Run when the instance hits something.
@@ -34,7 +34,7 @@ local inventoryDisplayRowLength = 5
 local tagFormat = "hotkey_display_inventory_"
 
 -- profile tags:
-    -- hotkey_display_inventory_[?]: The last character can be replaced with whatever key you wish. Holding down the key will display an 
+    -- hotkey_display_inventory_[?]: The last character can be replaced with whatever key you wish. Holding down the key will display an
     -- actor's inventory below them.
 
 
@@ -66,7 +66,7 @@ end
 -- Prepares the actor so it can use items. If an actor has not been run through this function, it cannot use items.
 -- The function will do nothing if you pass a player into it, since they can already use items.
 GlobalItem.initActor = function(instance)
-    if type(instance) == "PlayerInstance" then 
+    if type(instance) == "PlayerInstance" then
         print("Global Items: Players can already use items. Did you mean to call this function on a PlayerInstance?")
         return
     elseif type(instance) == "ActorInstance" then
@@ -101,7 +101,7 @@ end
 -- Checks if the passed in actor instance has been initialized or not.
 -- Returns true if so, false otherwise.
 GlobalItem.actorIsInit = function(instance)
-    if type(instance) == "PlayerInstance" then 
+    if type(instance) == "PlayerInstance" then
         print("Global Items: Players can already use items. Did you mean to call this function on an ActorInstance?")
         return false
     elseif type(instance) == "ActorInstance" then
@@ -158,7 +158,7 @@ GlobalItem.addItem = function(instance, item, count)
 end
 
 -- Completely removes an item from the actor.
--- If the item has a remove event, the "hardRemove" bool will be passed in as true. 
+-- If the item has a remove event, the "hardRemove" bool will be passed in as true.
 -- This indicates that the remove event should clean up ALL effects of the item, regardless of stack count.
 -- Make sure your items take "hardRemove" into account!
 GlobalItem.remove = function(instance, item)
@@ -192,7 +192,7 @@ GlobalItem.countItem = function(instance, item)
     end
 end
 
--- Sets the drop chance of an item for the passed in Instance, from 0 to 1. 
+-- Sets the drop chance of an item for the passed in Instance, from 0 to 1.
 -- 0 means the item will never drop, and 1 means the item is guaranteed to drop.
 GlobalItem.setDropChance = function(instance, item, chance)
     if instance:getData().drops then
@@ -290,7 +290,7 @@ local DrawInventory = function(actor)
                         graphics.alpha(1)
                         graphics.print(count, xx + 16 + (36 * (index % rowLength)), yy + 16 + (40 * rows), graphics.FONT_DAMAGE, graphics.ALIGN_RIGHT, graphics.ALIGN_BOTTOM)
                     end
-                
+
                 end
                 index = index + 1
                 if index % 5 == 0 then
@@ -328,7 +328,7 @@ end)
 
 ---------------------------
 
-callback.register("postStep", function() 
+callback.register("postStep", function()
     if GetKeyFromTag() and input.checkKeyboard(GetKeyFromTag()) == input.PRESSED then
         draw = not draw
         --print("Toggled inventory display to "..tostring(draw))
@@ -459,7 +459,7 @@ callback.register("onHit", function(damager, hit, x, y)
                             if GlobalItem.items[item].damage then
                                 GlobalItem.items[item].damage(actor, count, damager:get("damage"))
                             end
-                            if actor:get("hp") - damager:get("damage") <= 0 then        
+                            if actor:get("hp") - damager:get("damage") <= 0 then
                                 if GlobalItem.items[item].death then
                                     GlobalItem.items[item].death(actor, count)
                                 end
@@ -501,7 +501,7 @@ end)
 
 ---------------------------
 
-require("util")
-require("vanilla")
+restre_require("util")
+restre_require("vanilla")
 
 export("GlobalItem", GlobalItem)

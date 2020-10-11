@@ -6,7 +6,7 @@
 local crystal = Item("Focus Crystal")
 crystal.pickupText = "Deal extra damage to nearby enemies."
 
-crystal.sprite = Sprite.load("Items/common/Graphicscrystal.png", 1, 16, 16)
+crystal.sprite = Sprite.load("Items/common/Graphics/crystal.png", 1, 16, 16)
 crystal:setTier("common")
 
 crystal:setLog{

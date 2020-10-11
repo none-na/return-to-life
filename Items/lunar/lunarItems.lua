@@ -4,7 +4,7 @@ local players = Object.find("P", "vanilla")
 -- ITEMS --
 IRL = itemremover
 
-local emptySprite = Sprite.load("lunarempty", "Graphics/empty", 1, 0, 0)
+local emptySprite = Sprite.load("lunarempty", "Item/lunar/Graphics/empty", 1, 0, 0)
 
 --Shaped Glass--
 local glass = Item.new("Shaped Glass")
@@ -108,7 +108,7 @@ gesture:addCallback("pickup", function(player)
     else
         player:set("use_cooldown", player:get("use_cooldown") / 2)
     end
-    
+
 end)
 IRL.setRemoval(gesture, function(player)
     if player:countItem(gesture) > 0 then
@@ -159,7 +159,7 @@ transcendence:setLog{
 }
 Lunar.register(transcendence)
 
-local shieldIcon = Sprite.load("Graphics/bug", 1, 7, 11)
+local shieldIcon = Sprite.load("Item/lunar/Graphics/bug", 1, 7, 11)
 
 transcendence:addCallback("pickup", function(player)
     if player:countItem(transcendence) == 1 then
@@ -261,7 +261,7 @@ flower:setLog{
 local regenDelay = 60 --The player's regenTimer will be set to this every time Corpsebloom heals the player.
 
 local healingOverTime = Buff.new("Corpsebloom")
-healingOverTime.sprite = Sprite.load("corpseBuff", "Graphics/flowerBuff", 10, 6, 6)
+healingOverTime.sprite = Sprite.load("corpseBuff", "Item/lunar/Graphics/flowerBuff", 10, 6, 6)
 healingOverTime.frameSpeed = regenDelay / (regenDelay*4)
 
 healingOverTime:addCallback("step", function(actor)
@@ -328,7 +328,7 @@ strides:setLog{
 	date = "12/31/2056"
 }
 
-local stridesIcon = Sprite.load("Graphics/shadowfade", 1, 0,0)
+local stridesIcon = Sprite.load("Item/lunar/Graphics/shadowfade", 1, 0,0)
 
 local stridesCooldown = 6 * 60
 
@@ -347,7 +347,7 @@ darkness:alpha(0,1,0)
 darkness:life(60, 60)
 
 local feather = ParticleType.new("feather")
-feather:sprite(Sprite.load("Graphics/feather", 1, 2.5, 5), false, false, false)
+feather:sprite(Sprite.load("Item/lunar/Graphics/feather", 1, 2.5, 5), false, false, false)
 feather:angle(0, 360, 1, 0, true)
 feather:direction(0, 360, 0, 0)
 feather:speed(0.2, 0.2, 0, 0)
@@ -400,7 +400,7 @@ shadowfade:addCallback("step", function(actor)
     if data.f % 5 == 0 then
         feather:burst("middle", actor.x + math.random(-10, 10), actor.y + math.random(-10, 10), 1)
     end
-    
+
     darkness:burst("middle", actor.x + math.random(-2, 2), actor.y + math.random(-2, 2), 1)
 
 end)
@@ -437,13 +437,13 @@ registercallback("onPlayerStep", function(player)
   local pNN = player:getData()
     if not pNN.overridecd3 then pNN.overridecd3 = 0 end
     if player:countItem(strides) > 0 then
-        
+
 	    player:setSkill(3,
         "Shadowfade",
         "Fade into darkness for ".. (3*player:countItem(strides)) .." seconds, becoming intangible and gaining movement speed. Heal for ".. 25 * player:countItem(strides) .."% of your maximum health.",
         stridesIcon, 1,
         6 * 60)
-        player:setAlarm(4, math.clamp(player:getAlarm(4), 0, 9999))    
+        player:setAlarm(4, math.clamp(player:getAlarm(4), 0, 9999))
         if player:get("activity") == 0 and player:control("ability3") == 3 and pNN.overridecd3 == 0 then
             player:applyBuff(shadowfade, (3*player:countItem(strides))*60)
         end
@@ -484,12 +484,12 @@ visions:setLog{
 	date = "12/31/2056"
 }
 
-local visionsIcon = Sprite.load("Graphics/hungeringGaze", 1, 0,0)
+local visionsIcon = Sprite.load("Item/lunar/Graphics/hungeringGaze", 1, 0,0)
 
 local visionsSprites = {
-    idle = Sprite.load("Graphics/gaze", 2, 6.5, 1.5),
-    blast = Sprite.load("Graphics/gazeSparks", 3, 15, 5.5),
-    mask = Sprite.load("Graphics/gazeMask", 1, 5.5, 5.5)
+    idle = Sprite.load("Item/lunar/Graphics/gaze", 2, 6.5, 1.5),
+    blast = Sprite.load("Item/lunar/Graphics/gazeSparks", 3, 15, 5.5),
+    mask = Sprite.load("Item/lunar/Graphics/gazeMask", 1, 5.5, 5.5)
 }
 
 local gazeTrail = ParticleType.new("HungeringGaze")
@@ -622,7 +622,7 @@ registercallback("onPlayerStep", function(player)
         "Fire a flurry of tracking shards that detonate after a delay, dealing 120% base damage. Hold up to ".. (12*player:countItem(visions)) .." charges that reload after ".. 2 * player:countItem(visions) .." seconds.",
         visionsIcon, 1,
         2 * 60)
-        player:setAlarm(2, math.clamp(player:getAlarm(2), 0, 9999))    
+        player:setAlarm(2, math.clamp(player:getAlarm(2), 0, 9999))
         if player:get("activity") == 0 and player:control("ability1") == 3 and pNN.overridecd1 == 0 then
             local v = gaze:create(player.x, player.y)
             v:set("direction", player:getFacingDirection())
@@ -699,7 +699,7 @@ effigy:setLog{
 -- Placed Effigy --
 
 local effigyDebuff = Buff.new("Grieving")
-effigyDebuff.sprite = Sprite.load("grief", "Graphics/effigyDebuff", 1, 5, 7)
+effigyDebuff.sprite = Sprite.load("grief", "Item/lunar/Graphics/effigyDebuff", 1, 5, 7)
 effigyDebuff:addCallback("start", function(actor)
 	actor:set("pHmax", actor:get("pHmax") - 0.5)
 	actor:set("armor", actor:get("armor") - 100)
@@ -711,8 +711,8 @@ end)
 local effigyRadius = 100
 local effigyObject = Object.new("Placed Effigy")
 local effigySprites = {
-    idle = Sprite.load("effigySprite", "Graphics/effigy", 5, 9, 26),
-    mask = Sprite.load("effigyMask", "Graphics/effigyMask", 1, 6, 13)
+    idle = Sprite.load("effigySprite", "Item/lunar/Graphics/effigy", 5, 9, 26),
+    mask = Sprite.load("effigyMask", "Item/lunar/Graphics/effigyMask", 1, 6, 13)
 }
 effigyObject.sprite = effigySprites.idle
 local effigySound = Sound.find("WormExplosion", "vanilla")
@@ -818,7 +818,7 @@ local hellfireStop = Sound.find("WormExplosion", "vanilla")
 
 -- Hellfire Particles
 local fireBurst = ParticleType.new("Hellfire")
-fireBurst:sprite(Sprite.load("fire", "Graphics/hellfireBurst", 7, 16, 20), true, true, false)
+fireBurst:sprite(Sprite.load("fire", "Item/lunar/Graphics/hellfireBurst", 7, 16, 20), true, true, false)
 fireBurst:life(30, 60)
 fireBurst:alpha(1, 0)
 fireBurst:additive(true)
@@ -916,7 +916,7 @@ tonicAffliction.sprite = Sprite.load("tonicAffliction", "Items/tonicAffliction",
 tonicAffliction.color = Color.BLACK
 
 local tonicBuff = Buff.new("tonicBuff")
-tonicBuff.sprite = Sprite.load("EfBuffTonic", "Graphics/tonicBuff", 1, 9, 7.5)
+tonicBuff.sprite = Sprite.load("EfBuffTonic", "Item/lunar/Graphics/tonicBuff", 1, 9, 7.5)
 
 tonicBuff:addCallback("start", function(player)
     player:set("damage", player:get("damage") + (2 * player:countItem(tonicAffliction))):set("damage", (player:get("damage") * 2))

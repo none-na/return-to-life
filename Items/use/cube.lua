@@ -6,7 +6,7 @@
 local cube = Item("Primordial Cube")
 cube.pickupText = "Fire a black hole that draws enemies in."
 
-cube.sprite = Sprite.load("Items/use/Graphicscube.png", 2, 12, 13)
+cube.sprite = Sprite.load("Items/use/Graphics/cube.png", 2, 12, 13)
 
 cube.isUseItem = true
 cube.useCooldown = 60

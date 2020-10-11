@@ -6,7 +6,7 @@
 local meat = Item("Fresh Meat")
 meat.pickupText = "Regenerate health after killing an enemy."
 
-meat.sprite = Sprite.load("Items/common/Graphicsmeat.png", 1, 16, 16)
+meat.sprite = Sprite.load("Items/common/Graphics/meat.png", 1, 16, 16)
 
 meat:setTier("common")
 meat:setLog{

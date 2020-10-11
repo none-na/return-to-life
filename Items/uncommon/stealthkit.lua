@@ -6,7 +6,7 @@
 local stealthkit = Item("Old War Stealthkit")
 stealthkit.pickupText = "Chance on hit to turn invisible."
 
-stealthkit.sprite = Sprite.load("Items/uncommon/Graphicsstealthkit.png", 1, 16, 16)
+stealthkit.sprite = Sprite.load("Items/uncommon/Graphics/stealthkit.png", 1, 16, 16)
 
 stealthkit:setTier("uncommon")
 stealthkit:setLog{

@@ -6,7 +6,7 @@
 local cell = Item("Fuel Cell")
 cell.pickupText = "Gain an additional charge to use items. Lowers use item cooldowns."
 
-cell.sprite = Sprite.load("Items/uncommon/GraphicsfuelCell.png", 1, 16, 16)
+cell.sprite = Sprite.load("Items/uncommon/Graphics/fuelCell.png", 1, 16, 16)
 
 cell:setTier("uncommon")
 cell:setLog{

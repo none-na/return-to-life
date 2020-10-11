@@ -6,7 +6,7 @@
 local daisy = Item("Lepton Daisy")
 daisy.pickupText = "Creates healing novas during the teleporter event."
 
-daisy.sprite = Sprite.load("Items/uncommon/Graphicsdaisy.png", 1, 16, 16)
+daisy.sprite = Sprite.load("Items/uncommon/Graphics/daisy.png", 1, 16, 16)
 daisy:setTier("uncommon")
 
 daisy:setLog{

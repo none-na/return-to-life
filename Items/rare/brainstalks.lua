@@ -6,7 +6,7 @@
 local brainstalks = Item("Brainstalks")
 brainstalks.pickupText = "Skills have NO cooldowns for a short period after killing an elite monster."
 
-brainstalks.sprite = Sprite.load("Items/rare/Graphicsbrainstalks.png", 1, 16, 16)
+brainstalks.sprite = Sprite.load("Items/rare/Graphics/brainstalks.png", 1, 16, 16)
 brainstalks:setTier("rare")
 
 brainstalks:setLog{

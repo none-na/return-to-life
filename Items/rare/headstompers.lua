@@ -7,8 +7,8 @@ local headstompers = Item("H3AD-5T v2")
 headstompers.pickupText = "Increase jump height. Press '".. input.getControlString("use") .."' to slam down to the ground."
 
 local sprites = {
-    active = Sprite.load("Items/rare/Graphicsheadstompers.png", 1, 16, 16),
-    inactive = Sprite.load("Items/rare/Graphicsheadstompers2.png", 1, 16, 16)
+    active = Sprite.load("Items/rare/Graphics/headstompers.png", 1, 16, 16),
+    inactive = Sprite.load("Items/rare/Graphics/headstompers2.png", 1, 16, 16)
 }
 
 headstompers.sprite = sprites.active

@@ -6,7 +6,7 @@ local useSound = Sound.find("Pickup", "vanilla")
 
 local fuelArray = Item("Fuel Array")
 fuelArray.pickupText = "Looks like it could power something. EXTREMELY unstable..."
-fuelArray.sprite = Sprite.load("Items/use/GraphicsfuelArray", 2, 16, 16)
+fuelArray.sprite = Sprite.load("Items/use/Graphics/fuelArray", 2, 16, 16)
 fuelArray.isUseItem = true
 fuelArray.color = "or"
 fuelArray.useCooldown = 0

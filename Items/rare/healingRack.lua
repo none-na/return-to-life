@@ -6,7 +6,7 @@
 local rejuvRack = Item("Rejuvination Rack")
 rejuvRack.pickupText = "Increases strength of healing."
 
-rejuvRack.sprite = Sprite.load("Items/rare/GraphicshealingRack.png", 1, 16, 16)
+rejuvRack.sprite = Sprite.load("Items/rare/Graphics/healingRack.png", 1, 16, 16)
 
 rejuvRack:setTier("rare")
 rejuvRack:setLog{

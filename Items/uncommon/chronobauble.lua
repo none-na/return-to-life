@@ -6,7 +6,7 @@
 local bauble = Item("Chronobauble")
 bauble.pickupText = "Slow enemies on hit."
 
-bauble.sprite = Sprite.load("Items/uncommon/Graphicschronobauble.png", 1, 16, 16)
+bauble.sprite = Sprite.load("Items/uncommon/Graphics/chronobauble.png", 1, 16, 16)
 
 bauble:setTier("uncommon")
 bauble:setLog{

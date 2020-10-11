@@ -7,7 +7,7 @@ local novaOnHeal = Item("N'Kuhana's Opinion")
 novaOnHeal.pickupText = "Fire haunting skulls when healed."
 
 
-novaOnHeal.sprite = Sprite.load("Items/rare/GraphicsnovaOnHeal", 1, 16, 16)
+novaOnHeal.sprite = Sprite.load("Items/rare/Graphics/novaOnHeal", 1, 16, 16)
 
 
 novaOnHeal:setTier("rare")

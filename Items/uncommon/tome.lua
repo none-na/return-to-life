@@ -6,7 +6,7 @@
 local tome = Item("Ghor's Tome")
 tome.pickupText = "Chance on kill to drop a treasure."
 
-tome.sprite = Sprite.load("Items/uncommon/Graphicstome.png", 1, 16, 16)
+tome.sprite = Sprite.load("Items/uncommon/Graphics/tome.png", 1, 16, 16)
 tome:setTier("uncommon")
 
 tome:setLog{

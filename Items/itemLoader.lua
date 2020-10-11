@@ -1,0 +1,15 @@
+local itemsToLoad = {
+  boss = {"disciple", "genesisLoop", "goldseed", "knurl", "pearl", "queensGland", },
+  common = {"aprounds", "armorPlate", "backupmag", "brooch", "crystal", "energyDrink", "key", "meat", "shieldgen", "slug", },
+  lunar = {"lunarItems", },
+  rare = {"aegis", "afterburner", "brainstalks", "catalyst", "clover", "disc", "headstompers", "healingRack", "meathook", "novaOnHeal", "wakeOfVultures", },
+  uncommon = {"bandolier", "buckler", "chronobauble", "daisy", "deathMark", "fireRing", "fuelCell", "guillotine", "iceRing", "pauldron", "quail", "razorwire", "stealthkit", "tome", "warhorn", },
+  use = {"bfg", "blastShower", "capacitor", "chrysalis", "crowdfunder", "cube", "egg", "elephant", "eliteAffix", "fuelArray", "gateway", "hud", "radar", "woodsprite", },
+}
+
+for tier, table in pairs(itemsToLoad) do
+  for _, item in ipairs(table) do
+    restre_require(tier..[[\]]..item)
+    print(tier..[[\]]..item)
+  end
+end

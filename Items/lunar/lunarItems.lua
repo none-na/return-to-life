@@ -4,13 +4,14 @@ local players = Object.find("P", "vanilla")
 -- ITEMS --
 IRL = itemremover
 
-local emptySprite = Sprite.load("lunarempty", "Item/lunar/Graphics/empty", 1, 0, 0)
+--local emptySprite = Sprite.load("lunarempty", "Item/lunar/Graphics/empty", 1, 0, 0)
 
 --Shaped Glass--
+local LunarColor = Color.PURPLE
 local glass = Item.new("Shaped Glass")
 glass.displayName = "Shaped Glass"
 glass.pickupText = "Doubles base damage, but halves max health."
-glass.sprite = Sprite.load("glass", "Items/glass", 1, 16, 16)
+glass.sprite = Sprite.load("glass", "Items/lunar/Graphics/glass", 1, 16, 16)
 glass.color = LunarColor
 glass:setLog{
 	group = "end",
@@ -74,7 +75,7 @@ GlobalItem.items[glass] = {
 
 -- Glowing Meteorite --
 local meteorite = Item.find("Glowing Meteorite","vanilla")
-meteorite.sprite:replace(Sprite.load("meteoriteSprite", "Items/meteor", 2, 20, 19))
+meteorite.sprite:replace(Sprite.load("meteoriteSprite", "Items/lunar/Graphics/meteor", 2, 20, 19))
 local useItems = ItemPool.find("use", "vanilla")
 useItems:remove(meteorite)
 meteorite.color = LunarColor
@@ -90,7 +91,7 @@ Lunar.register(meteorite)
 local gesture = Item.new("Gesture of the Drowned")
 gesture.displayName = "Gesture of the Drowned"
 gesture.pickupText = "Sharply reduces use item cooldowns, but forces them to activate."
-gesture.sprite = Sprite.load("gesture", "Items/gesture", 1, 16, 16)
+gesture.sprite = Sprite.load("gesture", "Items/lunar/Graphics/gesture", 1, 16, 16)
 gesture.color = LunarColor
 gesture:setLog{
 	group = "end",
@@ -147,7 +148,7 @@ end)
 local transcendence = Item.new("Transcendence")
 transcendence.displayName = "Transcendence"
 transcendence.pickupText = "Converts all but 1 HP into a regenerating shield. Boosts maximum life."
-transcendence.sprite = Sprite.load("fuckinBug", "Items/bug", 1, 16, 18)
+transcendence.sprite = Sprite.load("fuckinBug", "Items/lunar/Graphics/bug", 1, 16, 18)
 transcendence.color = LunarColor
 transcendence:setLog{
 	group = "end",
@@ -200,7 +201,7 @@ local crown = Item.new("Brittle Crown")
 local goldSound = Sound.find("Coin", "vanilla")
 crown.displayName = "Brittle Crown"
 crown.pickupText = "Chance on hit to gain gold, but lose gold on taking damage."
-crown.sprite = Sprite.load("crown", "Items/crown", 1, 16, 16)
+crown.sprite = Sprite.load("crown", "Items/lunar/Graphics/crown", 1, 16, 16)
 crown.color = LunarColor
 crown:setLog{
 	group = "end",
@@ -242,7 +243,7 @@ end)
 local flower = Item.new("Corpsebloom")
 flower.displayName = "Corpsebloom"
 flower.pickupText = "Heal 100% more, but all healing is applied over time."
-flower.sprite = Sprite.load("corpsebloom", "Items/flower", 1, 16, 16)
+flower.sprite = Sprite.load("corpsebloom", "Items/lunar/Graphics/flower", 1, 16, 16)
 flower.color = LunarColor
 flower:setLog{
 	group = "end",
@@ -317,7 +318,7 @@ Lunar.register(flower)
 local strides = Item.new("Strides of Heresy")
 strides.displayName = "Strides of Heresy"
 strides.pickupText = "Replaces 3rd skill with Shadowfade."
-strides.sprite = Sprite.load("Items/lunar/Graphicsstrides", 1, 16, 16)
+strides.sprite = Sprite.load("Items/lunar/Graphics/lunar/Graphicsstrides", 1, 16, 16)
 strides.color = LunarColor
 strides:setLog{
 	group = "end",
@@ -473,7 +474,7 @@ Lunar.register(strides)
 --Visions of Heresy--
 local visions = Item.new("Visions of Heresy")
 visions.pickupText = "Replaces 1st skill with Hungering Gaze."
-visions.sprite = Sprite.load("Items/lunar/Graphicsvisions", 1, 16, 16)
+visions.sprite = Sprite.load("Items/lunar/Graphics/lunar/Graphicsvisions", 1, 16, 16)
 visions.color = LunarColor
 visions:setLog{
 	group = "end",
@@ -665,7 +666,7 @@ Lunar.register(visions)
 --Beads of Fealty--
 local beads = Item.new("Beads of Fealty")
 beads.pickupText = "Seems to do nothing... but..."
-beads.sprite = Sprite.load("beads", "Items/beads", 1, 16, 16)
+beads.sprite = Sprite.load("beads", "Items/lunar/Graphics/beads", 1, 16, 16)
 beads.color = LunarColor
 beads:setLog{
 	group = "end",
@@ -683,7 +684,7 @@ Lunar.register(beads)
 local effigy = Item.new("Effigy of Grief")
 effigy.displayName = "Effigy of Grief"
 effigy.pickupText = "Cripples all nearby characters when placed. Can be picked back up."
-effigy.sprite =Sprite.load("effigy", "Items/effigy", 2, 16, 16)
+effigy.sprite =Sprite.load("effigy", "Items/lunar/Graphics/effigy", 2, 16, 16)
 effigy.isUseItem = true
 effigy.useCooldown = 0.5
 effigy.color = LunarColor
@@ -790,7 +791,7 @@ Lunar.register(effigy)
 local hellfire = Item.new("Helfire Tincture")
 hellfire.displayName = "Helfire Tincture"
 hellfire.pickupText = "Ignite all nearby characters. Enemies take more damage."
-hellfire.sprite =Sprite.load("hellfire", "Items/hellfire", 2, 16, 16)
+hellfire.sprite =Sprite.load("hellfire", "Items/lunar/Graphics/hellfire", 2, 16, 16)
 hellfire.isUseItem = true
 hellfire.useCooldown = 45
 hellfire.color = LunarColor
@@ -893,7 +894,7 @@ end)
 local tonic = Item.new("Spinel Tonic")
 tonic.displayName = "Spinel Tonic"
 tonic.pickupText = "Dramatically increase all stats for 20 seconds. Chance of lowering stats while not in effect."
-tonic.sprite =Sprite.load("tonic", "Items/tonic", 2, 12, 16)
+tonic.sprite =Sprite.load("tonic", "Items/lunar/Graphics/tonic", 2, 12, 16)
 tonic.isUseItem = true
 tonic.useCooldown = 45
 tonic.color = LunarColor
@@ -912,7 +913,7 @@ local afflictionChance = 1
 local tonicAffliction = Item.new("Tonic Affliction")
 tonicAffliction.displayName = "Tonic Affliction"
 tonicAffliction.pickupText = "Reduces all stats by 5% when not under the effect of Spinel Tonic."
-tonicAffliction.sprite = Sprite.load("tonicAffliction", "Items/tonicAffliction", 1, 16, 16)
+tonicAffliction.sprite = Sprite.load("tonicAffliction", "Items/lunar/Graphics/tonicAffliction", 1, 16, 16)
 tonicAffliction.color = Color.BLACK
 
 local tonicBuff = Buff.new("tonicBuff")

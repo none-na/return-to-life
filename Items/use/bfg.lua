@@ -69,7 +69,7 @@ preonBall:addCallback("step", function(this)
         this:destroy()
         return
     end
-    
+
 end)
 
 local preonCharge = ParticleType.new("Preon Tendril Trail")
@@ -117,7 +117,7 @@ preonBox:addCallback("step", function(self)
         self:destroy()
     end
 end)
-    
+
 bfg:addCallback("use", function(player, embryo)
     local box = preonBox:create(player.x, player.y)
     local data = box:getData()
@@ -153,7 +153,7 @@ local sprites = {
     clock = Sprite.load("Graphics/timedChestClock", 11, 2, 3)
 }
 
-local timedChest = MapObject.new({
+--[[local timedChest = MapObject.new({
     name = "Timed Security Chest",
     sprite = sprites.idle,
     baseCost = 0,
@@ -248,7 +248,7 @@ timedChest:addCallback("draw", function(self)
                 y = self.y - 2,
                 subimage = math.clamp(digit2, 1, 10)
             }
-        end 
+        end
     end
 end)
 
@@ -296,4 +296,4 @@ registercallback("onObjectFailure", function(objectInstance, player)
     if objectInstance:getObject() == timedChest then
         Sound.find("Error", "vanilla"):play(1)
     end
-end)
+end)]]

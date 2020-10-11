@@ -41,7 +41,7 @@ fireball:life(60, 60)
 
 local volcanicEgg = Buff.new("VolcanicEgg")
 
-volcanicEgg.sprite = Sprite.find("Empty", "RoR2Demake")
+--volcanicEgg.sprite = Sprite.find("Empty", "RoR2Demake")
 
 volcanicEgg:addCallback("start", function(actor)
     local data = actor:getData()

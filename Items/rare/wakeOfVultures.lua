@@ -81,10 +81,10 @@ GlacialBuff.sprite = affixIcons
 GlacialBuff.subimage = 6
 GlacialBuff.frameSpeed = 0
 GlacialBuff:addCallback("start", function(actor)
-    
+
 end)
 GlacialBuff:addCallback("end", function(actor)
-    
+
 end)
 
 local PoisonBuff = Buff.new("Malachite Prefix")
@@ -92,10 +92,10 @@ PoisonBuff.sprite = affixIcons
 PoisonBuff.subimage = 7
 PoisonBuff.frameSpeed = 0
 PoisonBuff:addCallback("start", function(actor)
-    
+
 end)
 PoisonBuff:addCallback("end", function(actor)
-    
+
 end)
 
 local HauntedBuff = Buff.new("Celestine Prefix")
@@ -103,10 +103,10 @@ HauntedBuff.sprite = affixIcons
 HauntedBuff.subimage = 8
 HauntedBuff.frameSpeed = 0
 HauntedBuff:addCallback("start", function(actor)
-    
+
 end)
 HauntedBuff:addCallback("end", function(actor)
-    
+
 end)
 
 EliteAffixBuffs = {
@@ -115,9 +115,9 @@ EliteAffixBuffs = {
     [EliteType.find("Leeching", "vanilla")] = LeechingBuff,
     [EliteType.find("Overloading", "vanilla")] = OverloadingBuff,
     [EliteType.find("Volatile", "vanilla")] = VolatileBuff,
-    [EliteType.find("Glacial", "RoR2Demake")] = GlacialBuff,
+    --[[[EliteType.find("Glacial", "RoR2Demake")] = GlacialBuff,
     [EliteType.find("Malachite", "RoR2Demake")] = PoisonBuff,
-    [EliteType.find("Celestine", "RoR2Demake")] = HauntedBuff,
+    [EliteType.find("Celestine", "RoR2Demake")] = HauntedBuff,]]
 }
 
 

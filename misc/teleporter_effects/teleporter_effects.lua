@@ -1,16 +1,28 @@
---teleporterSounds.lua
--- Makes the teleporter look and sound ~*~cool~*~
+local TELEPORTER = Object.find("Teleporter", "Vanilla")
+local PLAYER_OBJECT = Object.find("P", "Vanilla")
 
-local teleporter = Object.find("Teleporter", "vanilla")
-local player = Object.find("P", "vanilla")
+local sprites = {
+	sparks = restre_spriteLoad("tpSparks", 8, 6, 4),
+}
 
 local sounds = {
-    complete = Sound.load("TeleporterComplete", "Sounds/SFX/tpActivate.ogg"),
-    activate = Sound.load("TeleporterActivate", "Sounds/SFX/tpCharge.ogg"),
-    tp = Sound.find("Teleporter", "vanilla")
+	tp       = Sound.find("Teleporter", "Vanilla"),
+
+	complete = restre_soundLoad("tpActivate.ogg"),
+	activate = restre_soundLoad("tpCharge.ogg"),
 }
 
 local tpSpark = ParticleType.find("Sparks", "RTSCore")
+
+local sparks = ParticleType.new("TeleporterSparks")
+sparks:sprite(sprites.spark, true, true, false)
+sparks:additive(true)
+sparks:life(15, 15)
+sparks:angle(0, 360, 0, 0, false)
+
+if true then
+	return nil
+end
 
 local tpFX = Object.new("EfTeleporterAura")
 tpFX:addCallback("create", function(self)

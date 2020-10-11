@@ -6,7 +6,8 @@
 local aegis = Item("Aegis")
 aegis.pickupText = "Healing past full grants you a temporary barrier."
 
-aegis.sprite = Sprite.load("Items/aegis.png", 1, 16, 16)
+--aegis.sprite = Sprite.load("Items/aegis.png", 1, 16, 16)
+aegis.sprite = restre_spriteLoad("aegis", "rare/Graphics/aegis.png", 1, 16, 16)
 aegis:setTier("rare")
 
 aegis:setLog{

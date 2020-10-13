@@ -15,6 +15,8 @@ end
 -- Guard
 if restre then return restre end
 
+local SEP = "./\\"
+
 -- Global
 restre = {}
 restre.VALID = setmetatable({}, { __mode = 'v' })
@@ -42,7 +44,7 @@ restre.cd = function(path, file)
 end
 
 restre.baseName = function(path)
-	local index = path:reverse():find("/")
+	local index = path:reverse():find("[" .. SEP .. "]")
 	local base = path:sub(1, -(index or 0))
 	local file = path:sub(-((index or 0) - 1), -1)
 	return base, file
@@ -144,7 +146,7 @@ local restre_depends = function(name, fatal)
 		return depwarn(name, fatal)
 	end
 	local parts = {}
-	for part in string.gmatch(name, string.format("([^%s]+)", './\\')) do
+	for part in string.gmatch(name, string.format("([^%s]+)", SEP)) do
 		table.insert(parts, part)
 	end
 	local t = _G

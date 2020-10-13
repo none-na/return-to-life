@@ -6,7 +6,7 @@
 local crystal = Item("Focus Crystal")
 crystal.pickupText = "Deal extra damage to nearby enemies."
 
-crystal.sprite = Sprite.load("Items/common/Graphics/crystal.png", 1, 16, 16)
+crystal.sprite = restre.spriteLoad("Graphics/crystal.png", 1, 16, 16)
 crystal:setTier("common")
 
 crystal:setLog{
@@ -18,8 +18,8 @@ crystal:setLog{
 }
 
 local effectRange = 30
-local proc = Sprite.load("Graphics/crystalBonus", 5, 5.5, 5.5)
-local procSound = Sound.load("Sounds/SFX/crystal.ogg")
+local proc = restre.spriteLoad("Graphics/crystalBonus", 5, 5.5, 5.5)
+local procSound = restre.soundLoad("Sounds/crystal.ogg")
 local sparks = Object.find("EfSparks", "vanilla")
 
 callback.register("onHit", function(damager, hit, x, y)

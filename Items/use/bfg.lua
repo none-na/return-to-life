@@ -6,7 +6,7 @@
 local bfg = Item("Preon Accumulator")
 bfg.pickupText = "Fire a ball of energy that electrocutes nearby enemies before detonating."
 
-bfg.sprite = Sprite.load("Items/use/Graphics/bfg.png", 2, 16, 16)
+bfg.sprite = restre.spriteLoad("Graphics/bfg.png", 2, 16, 16)
 bfg:setTier("use")
 
 bfg.isUseItem = true
@@ -25,9 +25,9 @@ local Projectile = require("libraries.Projectile")
 
 
 local Projsprites = {
-	sprite = Sprite.load("preonBlast", "Graphics/bfgProjectile", 9, 8, 8),
-    mask = Sprite.load("preonMask", "Graphics/bfgMask", 1, 8, 8),
-    explosion = Sprite.load("preonBoom", "Graphics/bfgExplosion", 5, 27, 25)
+	sprite = restre.spriteLoad("preonBlast", "Graphics/bfgProjectile", 9, 8, 8),
+    mask = restre.spriteLoad("preonMask", "Graphics/bfgMask", 1, 8, 8),
+    explosion = restre.spriteLoad("preonBoom", "Graphics/bfgExplosion", 5, 27, 25)
 }
 
 local fireSnd = Sound.find("Chest5", "vanilla")
@@ -73,7 +73,7 @@ preonBall:addCallback("step", function(this)
 end)
 
 local preonCharge = ParticleType.new("Preon Tendril Trail")
-preonCharge:sprite(Sprite.load("Graphics/bfgCharge", 8, 0, 20), true, true, false)
+preonCharge:sprite(restre.spriteLoad("Graphics/bfgCharge", 8, 0, 20), true, true, false)
 preonCharge:angle(0, 360, 0, 0, false)
 preonCharge:additive(true)
 preonCharge:life(20, 20)
@@ -148,9 +148,9 @@ GlobalItem.items[bfg] = {
 local targetTime = 10 --How many minutes before timed chest is locked
 
 local sprites = {
-    idle = Sprite.load("Graphics/timedChest", 8, 28, 15),
-    mask = Sprite.load("Graphics/timedChestMask", 1, 28, 15),
-    clock = Sprite.load("Graphics/timedChestClock", 11, 2, 3)
+    idle = restre.spriteLoad("Graphics/timedChest", 8, 28, 15),
+    mask = restre.spriteLoad("Graphics/timedChestMask", 1, 28, 15),
+    clock = restre.spriteLoad("Graphics/timedChestClock", 11, 2, 3)
 }
 
 --[[local timedChest = MapObject.new({

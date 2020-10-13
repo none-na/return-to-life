@@ -6,7 +6,7 @@
 local warhorn = Item("War Horn")
 warhorn.pickupText = "Activating your Use Item gives you a burst of attack speed."
 
-warhorn.sprite = Sprite.load("Items/uncommon/Graphics/warhorn.png", 1, 16, 16)
+warhorn.sprite = restre.spriteLoad("Graphics/warhorn.png", 1, 16, 16)
 warhorn:setTier("uncommon")
 
 warhorn:setLog{
@@ -18,9 +18,9 @@ warhorn:setLog{
 }
 
 local warhornBuff = Buff.new("burstAttackSpeed")
-warhornBuff.sprite = Sprite.load("EfWarhornBuff","Graphics/warhorn", 1, 9, 7.5)
+warhornBuff.sprite = restre.spriteLoad("EfWarhornBuff","Graphics/warhorn", 1, 9, 7.5)
 
-local procSound = Sound.load("Warhorn", "Sounds/SFX/warhorn.ogg")
+local procSound = restre.soundLoad("Warhorn", "Sounds/warhorn.ogg")
 
 local circle = Object.find("EfCircle", "vanilla")
 

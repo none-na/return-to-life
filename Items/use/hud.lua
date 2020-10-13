@@ -6,7 +6,7 @@
 local hud = Item("Ocular HUD")
 hud.pickupText = "Gain 100% Critical Strike chance for 8 seconds."
 
-hud.sprite = Sprite.load("Items/use/Graphics/hud.png", 2, 14, 16)
+hud.sprite = restre.spriteLoad("Graphics/hud.png", 2, 14, 16)
 
 hud.isUseItem = true
 hud.useCooldown = 60
@@ -23,7 +23,7 @@ hud:setLog{
 local hudActivationSnd = Sound.find("Drone1Spawn", "vanilla")
 
 local critBuff = Buff.new("Ocular HUD")
-critBuff.sprite = Sprite.load("hudBuffSpr", "Graphics/hudBuff", 1, 5, 3)
+critBuff.sprite = restre.spriteLoad("hudBuffSpr", "Graphics/hudBuff", 1, 5, 3)
 
 local hudFX = ParticleType.new("Ocular HUD FX")
 hudFX:life(5,5)

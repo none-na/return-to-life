@@ -6,7 +6,7 @@
 local gateway = Item("Eccentric Vase")
 gateway.pickupText = "Create a quantum tunnel between two locations."
 
-gateway.sprite = Sprite.load("Items/use/Graphics/gateway.png", 2, 12, 16)
+gateway.sprite = restre.spriteLoad("Graphics/gateway.png", 2, 12, 16)
 gateway:setTier("use")
 
 gateway.isUseItem = true
@@ -21,7 +21,7 @@ gateway:setLog{
 }
 local maxLength = 1000
 local players = Object.find("P", "vanilla")
-local mask = Sprite.load("Graphics/tunnelMask", 1, 6, 6)
+local mask = restre.spriteLoad("Graphics/tunnelMask", 1, 6, 6)
 local tunnel = Object.new("EfQuantumTunnel")
 local tpSound = Sound.find("ImpShoot2", "vanilla")
 local deathSound = Sound.find("Shield", "vanilla")

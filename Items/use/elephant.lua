@@ -6,7 +6,7 @@
 local elephant = Item("Jade Elephant")
 elephant.pickupText = "Gain massive armor for 5 seconds."
 
-elephant.sprite = Sprite.load("Items/use/Graphics/elephant.png", 2, 16, 16)
+elephant.sprite = restre.spriteLoad("Graphics/elephant.png", 2, 16, 16)
 elephant:setTier("use")
 
 elephant.isUseItem = true
@@ -20,9 +20,9 @@ elephant:setLog{
     date = "--/--/2056"
 }
 
-local sound = Sound.load("elephant", "Sounds/SFX/elephant.ogg")
+local sound = restre.soundLoad("elephant", "Sounds/elephant.ogg")
 
-local icon = Sprite.load("Graphics/elephantBuff", 1, 9, 4.5)
+local icon = restre.spriteLoad("Graphics/elephantBuff", 1, 9, 4.5)
 
 local buff = Buff.new("Elephant")
 buff.sprite = icon

@@ -6,7 +6,7 @@
 local cleanse = Item("Blast Shower")
 cleanse.pickupText = "Cleanse all negative status ailments."
 
-cleanse.sprite = Sprite.load("Items/use/Graphics/blastShower.png", 2, 14, 16)
+cleanse.sprite = restre.spriteLoad("Graphics/blastShower.png", 2, 14, 16)
 
 cleanse.isUseItem = true
 cleanse.useCooldown = 20
@@ -43,7 +43,7 @@ end
 
 local assets = {
     animation = nil,
-    sound = Sound.load("cleanse", "Sounds/SFX/cleanse.ogg")
+    sound = restre.soundLoad("cleanse", "Sounds/cleanse.ogg")
 }
 
 local CleanseProc = function(actor, embryo)

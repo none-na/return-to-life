@@ -6,7 +6,7 @@
 local brooch = Item("Topaz Brooch")
 brooch.pickupText = "Gain a temporary barrier on kill."
 
-brooch.sprite = Sprite.load("Items/common/Graphics/brooch.png", 1, 16, 16)
+brooch.sprite = restre.spriteLoad("Graphics/brooch.png", 1, 16, 16)
 brooch:setTier("common")
 
 brooch:setLog{

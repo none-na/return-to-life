@@ -6,7 +6,7 @@
 local egg = Item("Volcanic Egg")
 egg.pickupText = "Transform into a draconic fireball, damaging enemies as you pass."
 
-egg.sprite = Sprite.load("Items/use/Graphics/egg.png", 2, 14, 16)
+egg.sprite = restre.spriteLoad("Graphics/egg.png", 2, 14, 16)
 
 egg.isUseItem = true
 egg.useCooldown = 30
@@ -23,7 +23,7 @@ egg:setLog{
 local enemies = ParentObject.find("enemies", "vanilla")
 
 local sprites = {
-    fireball = Sprite.load("Graphics/fireBall", 1, 7, 7),
+    fireball = restre.spriteLoad("Graphics/fireBall", 1, 7, 7),
     detonate = Sprite.find("EfExplosive", "vanilla"),
     damage = Sprite.find("EfFirey", "vanilla")
 }

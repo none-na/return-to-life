@@ -6,7 +6,7 @@
 local knurl = Item("Colossal Snowball")
 knurl.pickupText = "Increases damage and attack speed. Chance on hit to freeze enemies."
 
-knurl.sprite = Sprite.load("Items/boss/Graphics/knurl.png", 1, 16, 16)
+knurl.sprite = restre.spriteLoad("Graphics/knurl.png", 1, 16, 16)
 --knurl:setTier("rare")
 
 knurl:setLog{

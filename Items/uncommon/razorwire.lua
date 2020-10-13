@@ -6,7 +6,7 @@
 local razorwire = Item("Razorwire")
 razorwire.pickupText = "Retaliate in a burst of razors on taking damage."
 
-razorwire.sprite = Sprite.load("Items/uncommon/Graphics/razorwire.png", 1, 16, 16)
+razorwire.sprite = restre.spriteLoad("Graphics/razorwire.png", 1, 16, 16)
 razorwire:setTier("uncommon")
 
 razorwire:setLog{
@@ -21,7 +21,7 @@ local meters = 5
 local actors = ParentObject.find("actors", "vanilla")
 
 local sprites = {
-    thorns = Sprite.load("RazorThorns", "Graphics/thorns",1, 18, 18),
+    thorns = restre.spriteLoad("RazorThorns", "Graphics/thorns",1, 18, 18),
     proc = Sprite.find("EfSlash2", "vanilla"),
     hit = Sprite.find("Bite1", "vanilla")
 }

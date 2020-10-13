@@ -6,7 +6,7 @@
 local fireRing = Item("Kjaro's Band")
 fireRing.pickupText = "Chance on hit to cast a runic fire tornado."
 
-fireRing.sprite = Sprite.load("Items/uncommon/Graphics/fireRing.png", 1, 16, 16)
+fireRing.sprite = restre.spriteLoad("Graphics/fireRing.png", 1, 16, 16)
 fireRing:setTier("uncommon")
 
 fireRing:setLog{
@@ -26,14 +26,14 @@ GlobalItem.items[fireRing] = {
     end
 }
 
-local fireFX = Sprite.load("Graphics/fireTornado", 4, 5, 15)
+local fireFX = restre.spriteLoad("Graphics/fireTornado", 4, 5, 15)
 local fireImpact = Sprite.find("EfFirey", "vanilla")
 local fireSound = Sound.find("WispBShoot1", "vanilla")
 local fireParticle = ParticleType.find("Fire2", "vanilla")
 local actors = ParentObject.find("actors", "vanilla")
 
 local spellBand = ParticleType.new("Fire Spell")
-spellBand:sprite(Sprite.load("fireBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
+spellBand:sprite(restre.spriteLoad("fireBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
 spellBand:color(Color.WHITE, Color.ORANGE)
 spellBand:alpha(1, 0)
 spellBand:additive(true)

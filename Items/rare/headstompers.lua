@@ -7,8 +7,8 @@ local headstompers = Item("H3AD-5T v2")
 headstompers.pickupText = "Increase jump height. Press '".. input.getControlString("use") .."' to slam down to the ground."
 
 local sprites = {
-    active = Sprite.load("Items/rare/Graphics/headstompers.png", 1, 16, 16),
-    inactive = Sprite.load("Items/rare/Graphics/headstompers2.png", 1, 16, 16)
+    active = restre.spriteLoad("Graphics/headstompers.png", 1, 16, 16),
+    inactive = restre.spriteLoad("Graphics/headstompers2.png", 1, 16, 16)
 }
 
 headstompers.sprite = sprites.active
@@ -22,7 +22,7 @@ headstompers:setLog{
     date = "11/02/2056"
 }
 
-local boomSpr = Sprite.load("Graphics/headstompersBoom", 6, 58, 42)
+local boomSpr = restre.spriteLoad("Graphics/headstompersBoom", 6, 58, 42)
 local boomSnd = Sound.find("Geyser", "vanilla")
 local buildUpLimit = 30
 

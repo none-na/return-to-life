@@ -6,7 +6,7 @@
 local item = Item("Death Mark")
 item.pickupText = "Enemies with four or more debuffs are marked for death, taking bonus damage."
 
-item.sprite = Sprite.load("Items/uncommon/Graphics/deathMark.png", 1, 16, 16)
+item.sprite = restre.spriteLoad("Graphics/deathMark.png", 1, 16, 16)
 
 item:setTier("uncommon")
 item:setLog{
@@ -19,7 +19,7 @@ item:setLog{
 
 local crit = Sound.find("Crit", "vanilla")
 
-local buffIcon = Sprite.load("deathMarkBuff","Graphics/deathMark", 1, 9, 7)
+local buffIcon = restre.spriteLoad("deathMarkBuff","Graphics/deathMark", 1, 9, 7)
 
 local buff = Buff.new("deathMark")
 buff.sprite = buffIcon

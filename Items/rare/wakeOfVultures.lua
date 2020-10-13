@@ -6,7 +6,7 @@
 local vultures = Item("Wake of Vultures")
 vultures.pickupText = "Steal the power of slain elites."
 
-vultures.sprite = Sprite.load("Items/rare/Graphics/wakeOfVultures.png", 1, 16, 16)
+vultures.sprite = restre.spriteLoad("Graphics/wakeOfVultures.png", 1, 16, 16)
 vultures:setTier("rare")
 
 vultures:setLog{
@@ -17,7 +17,7 @@ vultures:setLog{
     date = "3/5/2056"
 }
 
-local affixIcons = Sprite.load("Graphics/vultureIcons", 8, 6, 8)
+local affixIcons = restre.spriteLoad("Graphics/vultureIcons", 8, 6, 8)
 
 local BlazingBuff = Buff.new("Blazing Prefix")
 BlazingBuff.sprite = affixIcons

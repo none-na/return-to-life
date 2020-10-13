@@ -8,7 +8,7 @@ require("Libraries.abilitylib")
 local backupMag = Item("Backup Magazine")
 backupMag.pickupText = "Add an extra use to your second skill."
 
-backupMag.sprite = Sprite.load("Items/common/Graphics/backupmag.png", 1, 16, 16)
+backupMag.sprite = restre.spriteLoad("Graphics/backupmag.png", 1, 16, 16)
 
 backupMag:setTier("common")
 backupMag:setLog{

@@ -6,7 +6,7 @@
 local catalyst = Item("Soulbound Catalyst")
 catalyst.pickupText = "Kills reduce use item cooldown by 4s."
 
-catalyst.sprite = Sprite.load("Items/rare/Graphics/catalyst.png", 1, 16, 16)
+catalyst.sprite = restre.spriteLoad("Graphics/catalyst.png", 1, 16, 16)
 catalyst:setTier("rare")
 
 catalyst:setLog{
@@ -28,7 +28,7 @@ registercallback("onNPCDeathProc", function(npc, actor)
 end)
 
 local sprites = {
-    idle = Sprite.load("catalystIdle", "Graphics/catalyst", 4, 5, 4),
+    idle = restre.spriteLoad("catalystIdle", "Graphics/catalyst", 4, 5, 4),
 }
 
 local players = ParentObject.find("actors", "vanilla")

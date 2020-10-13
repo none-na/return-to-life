@@ -1,6 +1,10 @@
 -- Return to Life
 
-require("restre")()
+local restre_key
+if (not restre) or (not restre.valid()) then
+    restre_key = require("restre")()
+    restre.cd(nil, "main")
+end
 
 restre_require("misc/title_screen/title_screen")
 restre_require("misc/teleporter_effects/teleporter_effects")

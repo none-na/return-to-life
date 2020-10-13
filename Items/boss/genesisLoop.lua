@@ -4,8 +4,8 @@
 --File created 2020/01/20
 
 local sprites = {
-    active = Sprite.load("Items/boss/Graphics/genesisLoop", 1, 16, 16),
-    cooldown = Sprite.load("Items/boss/Graphics/genesisLoop2", 1, 16, 16),
+    active = restre.spriteLoad("Graphics/genesisLoop", 1, 16, 16),
+    cooldown = restre.spriteLoad("Graphics/genesisLoop2", 1, 16, 16),
 }
 
 local loop = Item("Genesis Loop")

@@ -6,7 +6,7 @@
 local pauldron = Item("Bezerker's Pauldron")
 pauldron.pickupText = "Sends you into a frenzy after killing 3 enemies within 1 second."
 
-pauldron.sprite = Sprite.load("Items/uncommon/Graphics/pauldron.png", 1, 16, 16)
+pauldron.sprite = restre.spriteLoad("Graphics/pauldron.png", 1, 16, 16)
 pauldron:setTier("uncommon")
 
 pauldron:setLog{
@@ -29,7 +29,7 @@ frenzyParticle:direction(0, 360, 0, 1)
 
 
 local frenzy = Buff.new("Bezerker Frenzy")
-frenzy.sprite = Sprite.load("frenzyIcon", "Graphics/frenzyBuff", 1, 8, 8)
+frenzy.sprite = restre.spriteLoad("frenzyIcon", "Graphics/frenzyBuff", 1, 8, 8)
 
 frenzy:addCallback("start", function(player)
     player:set("pHmax", player:get("pHmax") + 1)

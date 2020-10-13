@@ -6,7 +6,7 @@
 local daisy = Item("Lepton Daisy")
 daisy.pickupText = "Creates healing novas during the teleporter event."
 
-daisy.sprite = Sprite.load("Items/uncommon/Graphics/daisy.png", 1, 16, 16)
+daisy.sprite = restre.spriteLoad("Graphics/daisy.png", 1, 16, 16)
 daisy:setTier("uncommon")
 
 daisy:setLog{
@@ -23,7 +23,7 @@ local flash = Object.find("EfFlash", "vanilla")
 local circle = Object.find("EfCircle", "vanilla")
 
 local sounds = {
-    pulse = Sound.load("daisy", "Sounds/SFX/daisy.ogg")
+    pulse = restre.soundLoad("daisy", "Sounds/daisy.ogg")
 }
 
 local daisyRadius = 300

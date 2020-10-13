@@ -6,7 +6,7 @@
 local brainstalks = Item("Brainstalks")
 brainstalks.pickupText = "Skills have NO cooldowns for a short period after killing an elite monster."
 
-brainstalks.sprite = Sprite.load("Items/rare/Graphics/brainstalks.png", 1, 16, 16)
+brainstalks.sprite = restre.spriteLoad("Graphics/brainstalks.png", 1, 16, 16)
 brainstalks:setTier("rare")
 
 brainstalks:setLog{
@@ -18,7 +18,7 @@ brainstalks:setLog{
 }
 
 local brainFrenzy = Buff.new("Brainstalks")
-brainFrenzy.sprite = Sprite.load("Graphics/brainstalksBuff", 1, 6, 7)
+brainFrenzy.sprite = restre.spriteLoad("Graphics/brainstalksBuff", 1, 6, 7)
 
 brainFrenzy:addCallback("step", function(actor)
     for i = 2, 5 do

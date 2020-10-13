@@ -6,7 +6,7 @@
 local energyDrink = Item("Energy Drink")
 energyDrink.pickupText = "Increases movement speed after moving for 1.5 seconds."
 
-energyDrink.sprite = Sprite.load("Items/common/Graphics/energyDrink.png", 1, 16, 16)
+energyDrink.sprite = restre.spriteLoad("Graphics/energyDrink.png", 1, 16, 16)
 energyDrink:setTier("common")
 
 energyDrink:setLog{
@@ -21,7 +21,7 @@ local moveTime = 90 --time required, in frames, for speed buff to kick in
 local particle = ParticleType.find("Speed", "vanilla")
 
 local energyBuff = Buff.new("energyDrink")
-energyBuff.sprite = Sprite.load("nrgBuff", "Graphics/empty", 1, 0, 0)
+--energyBuff.sprite = restre.spriteLoad("nrgBuff", "Graphics/empty", 1, 0, 0)
 
 energyBuff:addCallback("start", function(player)
     if type(player) == "PlayerInstance" then

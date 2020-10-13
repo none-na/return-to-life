@@ -43,7 +43,7 @@ end
 
 local assets = {
     animation = nil,
-    sound = Sound.load("cleanse", "Sounds/SFX/cleanse.ogg")
+    sound = restre.soundLoad("cleanse", "Sounds/SFX/cleanse.ogg")
 }
 
 local CleanseProc = function(actor, embryo)

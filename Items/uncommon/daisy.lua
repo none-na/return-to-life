@@ -23,7 +23,7 @@ local flash = Object.find("EfFlash", "vanilla")
 local circle = Object.find("EfCircle", "vanilla")
 
 local sounds = {
-    pulse = Sound.load("daisy", "Sounds/SFX/daisy.ogg")
+    pulse = restre.soundLoad("daisy", "Sounds/SFX/daisy.ogg")
 }
 
 local daisyRadius = 300

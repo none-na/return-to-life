@@ -334,9 +334,9 @@ local stridesIcon = restre.spriteLoad("Item/lunar/Graphics/shadowfade", 1, 0,0)
 local stridesCooldown = 6 * 60
 
 local sounds = {
-    start = Sound.load("ShadowfadeEnter", "Sounds/SFX/stridesStart.ogg"),
-    loop = Sound.load("ShadowfadeLoop", "Sounds/SFX/stridesLoop.ogg"),
-    exit = Sound.load("ShadowfadeExit", "Sounds/SFX/stridesExit.ogg"),
+    start = restre.soundLoad("ShadowfadeEnter", "Sounds/SFX/stridesStart.ogg"),
+    loop = restre.soundLoad("ShadowfadeLoop", "Sounds/SFX/stridesLoop.ogg"),
+    exit = restre.soundLoad("ShadowfadeExit", "Sounds/SFX/stridesExit.ogg"),
 }
 
 local darkness = ParticleType.new("darkness")

@@ -28,9 +28,54 @@ local hookChance = function(hookCount)
     return ((1.0 - 100.0 / (100.0 + 20.0 * hookCount)) * 100.0)
 end
 
+hook.sprite = restre_spriteLoad("rare/Graphics/meatHookSprite", 1, 0, 8)
 
+local playerObject = Object.find("P")
 
-hook:addCallback("create", function(self)
+local movementMultiplier = 0.1
+
+hook:addCallback("step", function(self)
+  local data = self:getData()
+  if not data.set then
+    data.age = 0
+    data.trueX, data.trueY = self.x, self.y
+    if not data.parent then data.parent = playerObject:findNearest(self.x, self.y) end
+    local idle = data.parent:getAnimation("idle")
+    data.parentIdleHeight = idle.height
+    data.parentIdleWidth = idle.width
+    data.set = true
+  end
+
+  data.age = data.age + 0.1
+
+  local parent = data.parent
+  local xscaleCorrection = 0
+  if data.parent.xscale == 1 then xscaleCorrection = 10 end
+  data.destination = {parent.x + xscaleCorrection + data.parentIdleWidth*parent.xscale, (parent.y+7) - data.parentIdleHeight}
+
+  local xDelta, yDelta = data.trueX - data.destination[1], data.trueY - data.destination[2]
+
+  data.trueX = math.floor(data.trueX - xDelta * movementMultiplier)
+  data.trueY = math.floor(data.trueY - yDelta * movementMultiplier)
+
+  self.x, self.y = data.trueX, data.trueY + math.sin(data.age)
+  if data.trueX < parent.x then self.xscale = -1 else self.xscale = 1 end
+end)
+
+hook:addCallback("draw", function(self)
+  local data = self:getData()
+  if data.set then
+    data.halfwayPoint = {4*data.parent.xscale+(self.x + data.parent.x)/2, 2+(self.y + data.parent.y)/2}
+
+    graphics.alpha(0.7)
+    graphics.line(self.x, self.y, data.halfwayPoint[1], data.halfwayPoint[2])
+    graphics.line(data.halfwayPoint[1], data.halfwayPoint[2], data.parent.x, (data.parent.y+7)-0.5*data.parentIdleHeight)
+    graphics.alpha(1)
+    --graphics.rectangle(self.x - 4, self.y - 4, self.x + 3, self.y + 3, true)
+  end
+end)
+
+--[[hook:addCallback("create", function(self)
     self:getData().targets = {}
     self:set("life", 60)
     local targets = self:getData().targets
@@ -83,7 +128,7 @@ hook:addCallback("step", function(self)
                             end
                         end
                         if math.round(yy) ~= 0 then
-                            if math.abs(yy) > 10 then    
+                            if math.abs(yy) > 10 then
                                 local moveDistance = enemy:get("pHmax") * 2
                                 for i = 0, moveDistance do
                                     if enemy:collidesMap(enemy.x,enemy.y + (enemy.sprite.height/2) + i) then
@@ -99,7 +144,7 @@ hook:addCallback("step", function(self)
                             end
                         end
                         hookCount = hookCount + 1
-                    end    
+                    end
                 end
             end
         end
@@ -110,7 +155,7 @@ hook:addCallback("step", function(self)
     else
         self:destroy()
     end
-    
+
 end)
 hook:addCallback("draw", function(self)
     for _, enemy in ipairs(self:getData().targets) do
@@ -179,4 +224,4 @@ registercallback("onHit", function(damager, hit, x, y)
             end
         end
     end
-end)
+end)]]

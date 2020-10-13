@@ -4,11 +4,11 @@
 Load Restre as such:
 require("restre")()
 
-If you want to be more complete (don't call cd if you're at the mod root):
+If you want to be more complete (use nil for submodfolder if you're at the mod root):
 local restre_key
 if (not restre) or (not restre.valid()) then
     restre_key = require("restre")()
-    restre.cd("submodfolder/", "main.lua")
+    restre.cd("submodfolder/", "main")
 end
 --]]
 

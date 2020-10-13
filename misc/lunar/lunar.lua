@@ -1,3 +1,5 @@
+if not restre.depends("CycloneLib.net") then return nil end
+
 local constants = {
 	color = Color.fromRGB(128, 142, 255),
 
@@ -63,7 +65,7 @@ do
 	end
 end
 
-registercallback("onHUDDraw", function()
+callback.register("onHUDDraw", function()
 	if misc.hud:get("show_gold") == 1 then
 		local w, h = graphics.getGameResolution()
 		local coins = Lunar.get()
@@ -110,7 +112,7 @@ do
 		if item.isUseItem then
 			local old_item = player.useItem
 			player.useItem = item
-			if old_item then
+			if old_item and net.host then
 				old_item:create(player.x, player.y - player.mask.height)
 			end
 		else
@@ -118,12 +120,10 @@ do
 		end
 	end
 
-	local function syncGiveItem(player, item)
-		if not net.online then
-			giveItem(player, item)
-		else
-		end
-	end
+	local syncGiveItem = CycloneLib.net.AutoPacket(function(player, item, i_item)
+		if i_item then i_item:destroy() end
+		giveItem(player, item)
+	end)
 
 	local p_item = ParentObject.find("items")
 	local o_player = Object.find("P", "Vanilla")
@@ -135,8 +135,7 @@ do
 				local player = o_player:findNearest(i_item.x, i_item.y)
 				if player:collidesWith(i_item, player.x, player.y) then
 					if player:control("enter") == input.PRESSED then
-						syncGiveItem(player, i_item:getItem())
-						i_item:destroy()
+						syncGiveItem(player, i_item:getItem(), i_item)
 					end
 				end
 			end

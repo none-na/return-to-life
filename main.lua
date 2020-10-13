@@ -6,10 +6,12 @@ if (not restre) or (not restre.valid()) then
     restre.cd(nil, "main")
 end
 
-restre_require("misc/title_screen/title_screen")
-restre_require("misc/teleporter_effects/teleporter_effects")
-restre_require("misc/flight_manager")
-restre_require("misc/lunar/lunar")
+restre.require("libraries/cyclonelib/main")
 
-restre_require("global-items/main")
-restre_require("Items/itemLoader")
+restre.require("misc/title_screen/title_screen")
+restre.require("misc/teleporter_effects/teleporter_effects")
+restre.require("misc/flight_manager")
+restre.require("misc/lunar/lunar")
+
+restre.require("global-items/main")
+restre.require("Items/itemLoader")

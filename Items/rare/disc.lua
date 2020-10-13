@@ -18,9 +18,9 @@ disc:setLog{
 }
 
 local sprites = {
-    disc = Sprite.load("DiscIdle", "Graphics/disc", 12, 2.5, 2.5),
-    impact1 = Sprite.load("DiscImpact1", "Graphics/discImpact1", 5, 22, 20),
-    impact2 = Sprite.load("DiscImpact2", "Graphics/discImpact2", 5, 15, 17),
+    disc = restre.spriteLoad("DiscIdle", "Graphics/disc", 12, 2.5, 2.5),
+    impact1 = restre.spriteLoad("DiscImpact1", "Graphics/discImpact1", 5, 22, 20),
+    impact2 = restre.spriteLoad("DiscImpact2", "Graphics/discImpact2", 5, 15, 17),
 }
 
 local sounds = {

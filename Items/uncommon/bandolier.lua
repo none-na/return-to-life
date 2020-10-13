@@ -18,8 +18,8 @@ bandolier:setLog{
 }
 
 local sprites = {
-    idle = Sprite.load("Graphics/ammo", 1, 3, 4),
-    mask = Sprite.load("Graphics/ammoMask", 1, 3, 4),
+    idle = restre.spriteLoad("Graphics/ammo", 1, 3, 4),
+    mask = restre.spriteLoad("Graphics/ammoMask", 1, 3, 4),
 }
 
 local sounds = {

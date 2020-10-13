@@ -23,14 +23,14 @@ woodsprite:setLog{
 local allyDetectionRange = 200
 local allyDetectionFilter = 10
 
-local reticule = Sprite.load("Graphics/woodspriteTarget", 1, 16, 16)
+local reticule = restre.spriteLoad("Graphics/woodspriteTarget", 1, 16, 16)
 
 local actors = ParentObject.find("actors", "vanilla")
 local players = Object.find("P", "vanilla")
 
 local sprites = {
-    idle = Sprite.load("woodspriteIdle", "Graphics/spriteIdle", 6, 3, 3),
-    healing = Sprite.load("woodspriteShoot1", "Graphics/spriteHeal", 4, 8, 9),
+    idle = restre.spriteLoad("woodspriteIdle", "Graphics/spriteIdle", 6, 3, 3),
+    healing = restre.spriteLoad("woodspriteShoot1", "Graphics/spriteHeal", 4, 8, 9),
 }
 
 local healSnd = Sound.find("Use", "vanilla")

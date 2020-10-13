@@ -17,9 +17,9 @@ guillotine:setLog{
     date = "9/10/2056"
 }
 
-local procEffect = Sprite.load("EfGuillotine", "Graphics/guillotine", 7, 12, 31)
+local procEffect = restre.spriteLoad("EfGuillotine", "Graphics/guillotine", 7, 12, 31)
 local procSound = Sound.find("ClayShoot1", "vanilla")
-local procMessages = Sprite.load("EfExecute", "Graphics/executeMessage", 4, 29, 4)
+local procMessages = restre.spriteLoad("EfExecute", "Graphics/executeMessage", 4, 29, 4)
 local message = Object.new("EfExecute")
 local mesLife = 60
 local mesSpeed = 0.2

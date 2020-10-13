@@ -23,7 +23,7 @@ hud:setLog{
 local hudActivationSnd = Sound.find("Drone1Spawn", "vanilla")
 
 local critBuff = Buff.new("Ocular HUD")
-critBuff.sprite = Sprite.load("hudBuffSpr", "Graphics/hudBuff", 1, 5, 3)
+critBuff.sprite = restre.spriteLoad("hudBuffSpr", "Graphics/hudBuff", 1, 5, 3)
 
 local hudFX = ParticleType.new("Ocular HUD FX")
 hudFX:life(5,5)

@@ -18,7 +18,7 @@ warhorn:setLog{
 }
 
 local warhornBuff = Buff.new("burstAttackSpeed")
-warhornBuff.sprite = Sprite.load("EfWarhornBuff","Graphics/warhorn", 1, 9, 7.5)
+warhornBuff.sprite = restre.spriteLoad("EfWarhornBuff","Graphics/warhorn", 1, 9, 7.5)
 
 local procSound = Sound.load("Warhorn", "Sounds/SFX/warhorn.ogg")
 

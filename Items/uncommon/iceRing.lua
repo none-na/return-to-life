@@ -27,12 +27,12 @@ GlobalItem.items[iceRing] = {
 }
 
 local Projectile = require("libraries.Projectile")
-local iceFX = Sprite.load("Graphics/iceBlast", 4, 9, 11)
+local iceFX = restre.spriteLoad("Graphics/iceBlast", 4, 9, 11)
 local iceSound = Sound.find("Frozen", "vanilla")
 local iceParticle = ParticleType.find("Ice", "vanilla")
 local actors = ParentObject.find("actors", "vanilla")
 local spellBand = ParticleType.new("Ice Spell")
-spellBand:sprite(Sprite.load("iceBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
+spellBand:sprite(restre.spriteLoad("iceBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
 spellBand:color(Color.WHITE, Color.AQUA)
 spellBand:alpha(1, 0)
 spellBand:additive(true)

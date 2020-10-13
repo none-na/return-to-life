@@ -29,7 +29,7 @@ frenzyParticle:direction(0, 360, 0, 1)
 
 
 local frenzy = Buff.new("Bezerker Frenzy")
-frenzy.sprite = Sprite.load("frenzyIcon", "Graphics/frenzyBuff", 1, 8, 8)
+frenzy.sprite = restre.spriteLoad("frenzyIcon", "Graphics/frenzyBuff", 1, 8, 8)
 
 frenzy:addCallback("start", function(player)
     player:set("pHmax", player:get("pHmax") + 1)

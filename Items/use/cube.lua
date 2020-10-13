@@ -11,10 +11,10 @@ cube.sprite = restre.spriteLoad("Graphics/cube.png", 2, 12, 13)
 cube.isUseItem = true
 cube.useCooldown = 60
 
-local blackHoleSpr = Sprite.load("Graphics/blackHole", 1, 5, 5)
-local blackHoleMask = Sprite.load("Graphics/blackHoleMask", 1, 5, 5)
-local succFX = Sprite.load("succ", "Graphics/suckLine", 7, 5, 16)
-local holeAura = Sprite.load("glow", "Graphics/blackAura", 1, 10, 10)
+local blackHoleSpr = restre.spriteLoad("Graphics/blackHole", 1, 5, 5)
+local blackHoleMask = restre.spriteLoad("Graphics/blackHoleMask", 1, 5, 5)
+local succFX = restre.spriteLoad("succ", "Graphics/suckLine", 7, 5, 16)
+local holeAura = restre.spriteLoad("glow", "Graphics/blackAura", 1, 10, 10)
 
 cube:setTier("use")
 cube:setLog{

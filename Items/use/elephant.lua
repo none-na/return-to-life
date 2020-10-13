@@ -22,7 +22,7 @@ elephant:setLog{
 
 local sound = Sound.load("elephant", "Sounds/SFX/elephant.ogg")
 
-local icon = Sprite.load("Graphics/elephantBuff", 1, 9, 4.5)
+local icon = restre.spriteLoad("Graphics/elephantBuff", 1, 9, 4.5)
 
 local buff = Buff.new("Elephant")
 buff.sprite = icon

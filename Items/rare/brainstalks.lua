@@ -18,7 +18,7 @@ brainstalks:setLog{
 }
 
 local brainFrenzy = Buff.new("Brainstalks")
-brainFrenzy.sprite = Sprite.load("Graphics/brainstalksBuff", 1, 6, 7)
+brainFrenzy.sprite = restre.spriteLoad("Graphics/brainstalksBuff", 1, 6, 7)
 
 brainFrenzy:addCallback("step", function(actor)
     for i = 2, 5 do

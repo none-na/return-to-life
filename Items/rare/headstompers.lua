@@ -22,7 +22,7 @@ headstompers:setLog{
     date = "11/02/2056"
 }
 
-local boomSpr = Sprite.load("Graphics/headstompersBoom", 6, 58, 42)
+local boomSpr = restre.spriteLoad("Graphics/headstompersBoom", 6, 58, 42)
 local boomSnd = Sound.find("Geyser", "vanilla")
 local buildUpLimit = 30
 

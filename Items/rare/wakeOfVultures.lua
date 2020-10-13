@@ -17,7 +17,7 @@ vultures:setLog{
     date = "3/5/2056"
 }
 
-local affixIcons = Sprite.load("Graphics/vultureIcons", 8, 6, 8)
+local affixIcons = restre.spriteLoad("Graphics/vultureIcons", 8, 6, 8)
 
 local BlazingBuff = Buff.new("Blazing Prefix")
 BlazingBuff.sprite = affixIcons

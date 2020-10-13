@@ -18,7 +18,7 @@ crystal:setLog{
 }
 
 local effectRange = 30
-local proc = Sprite.load("Graphics/crystalBonus", 5, 5.5, 5.5)
+local proc = restre.spriteLoad("Graphics/crystalBonus", 5, 5.5, 5.5)
 local procSound = Sound.load("Sounds/SFX/crystal.ogg")
 local sparks = Object.find("EfSparks", "vanilla")
 

@@ -24,8 +24,8 @@ local enemies = ParentObject.find("enemies", "vanilla")
 local Projectile = require("Libraries.Projectile")
 
 local skullSprites = {
-	idle = Sprite.load("Graphics/skull", 1, 7, 3),
-	impact = Sprite.load("Graphics/novaImpact", 4, 9, 9)
+	idle = restre.spriteLoad("Graphics/skull", 1, 7, 3),
+	impact = restre.spriteLoad("Graphics/novaImpact", 4, 9, 9)
 }
 
 local skullProjectile = Projectile.new({

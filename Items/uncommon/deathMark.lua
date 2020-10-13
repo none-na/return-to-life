@@ -19,7 +19,7 @@ item:setLog{
 
 local crit = Sound.find("Crit", "vanilla")
 
-local buffIcon = Sprite.load("deathMarkBuff","Graphics/deathMark", 1, 9, 7)
+local buffIcon = restre.spriteLoad("deathMarkBuff","Graphics/deathMark", 1, 9, 7)
 
 local buff = Buff.new("deathMark")
 buff.sprite = buffIcon

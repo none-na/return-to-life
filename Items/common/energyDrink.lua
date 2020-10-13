@@ -21,7 +21,7 @@ local moveTime = 90 --time required, in frames, for speed buff to kick in
 local particle = ParticleType.find("Speed", "vanilla")
 
 local energyBuff = Buff.new("energyDrink")
-energyBuff.sprite = Sprite.load("nrgBuff", "Graphics/empty", 1, 0, 0)
+energyBuff.sprite = restre.spriteLoad("nrgBuff", "Graphics/empty", 1, 0, 0)
 
 energyBuff:addCallback("start", function(player)
     if type(player) == "PlayerInstance" then

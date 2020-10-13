@@ -23,7 +23,7 @@ radar:setLog{
 local pulse = Object.find("EfCircle", "vanilla")
 
 local radarBuff = Buff.new("radarBuff")
-radarBuff.sprite = Sprite.load("radarBuff","Graphics/radar", 1, 9, 7)
+radarBuff.sprite = restre.spriteLoad("radarBuff","Graphics/radar", 1, 9, 7)
 
 radarBuff:addCallback("start", function(actor)
     actor:set("radarPulse", 0)
@@ -40,7 +40,7 @@ radarBuff:addCallback("step", function(actor)
 end)
 
 local radarRange = 750
-local arrowSpr = Sprite.load("Graphics/arrow", 1, 4, -15)
+local arrowSpr = restre.spriteLoad("Graphics/arrow", 1, 4, -15)
 local mapObjects = {ParentObject.find("mapObjects", "vanilla"), ParentObject.find("droneItems", "vanilla"), ParentObject.find("chests", "vanilla"), }
 
 local getAngleTowardsObject = function(player, object)

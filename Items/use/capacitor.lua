@@ -11,8 +11,8 @@ capacitor.sprite = restre.spriteLoad("Graphics/capacitor.png", 2, 13, 14)
 capacitor.isUseItem = true
 capacitor.useCooldown = 20
 
-local reticule = Sprite.load("Graphics/capacitorTarget", 1, 16, 16)
-local lightningFX = Sprite.load("lightning", "Graphics/lightning", 13, 24, 153)
+local reticule = restre.spriteLoad("Graphics/capacitorTarget", 1, 16, 16)
+local lightningFX = restre.spriteLoad("lightning", "Graphics/lightning", 13, 24, 153)
 local lightningSound = Sound.find("Lightning", "vanilla")
 
 local useSound = Sound.find("Pickup", "vanilla")

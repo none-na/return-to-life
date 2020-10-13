@@ -21,7 +21,7 @@ gateway:setLog{
 }
 local maxLength = 1000
 local players = Object.find("P", "vanilla")
-local mask = Sprite.load("Graphics/tunnelMask", 1, 6, 6)
+local mask = restre.spriteLoad("Graphics/tunnelMask", 1, 6, 6)
 local tunnel = Object.new("EfQuantumTunnel")
 local tpSound = Sound.find("ImpShoot2", "vanilla")
 local deathSound = Sound.find("Shield", "vanilla")

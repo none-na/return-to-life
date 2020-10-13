@@ -19,7 +19,7 @@ quail:setLog{
 
 local boost = {
     object = Object.new("quail"),
-    sprite = Sprite.load("Graphics/quailBoost", 4, 10, 10),
+    sprite = restre.spriteLoad("Graphics/quailBoost", 4, 10, 10),
     sound = Sound.find("SamuraiShoot1", "vanilla")
 }
 

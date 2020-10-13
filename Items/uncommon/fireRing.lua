@@ -26,14 +26,14 @@ GlobalItem.items[fireRing] = {
     end
 }
 
-local fireFX = Sprite.load("Graphics/fireTornado", 4, 5, 15)
+local fireFX = restre.spriteLoad("Graphics/fireTornado", 4, 5, 15)
 local fireImpact = Sprite.find("EfFirey", "vanilla")
 local fireSound = Sound.find("WispBShoot1", "vanilla")
 local fireParticle = ParticleType.find("Fire2", "vanilla")
 local actors = ParentObject.find("actors", "vanilla")
 
 local spellBand = ParticleType.new("Fire Spell")
-spellBand:sprite(Sprite.load("fireBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
+spellBand:sprite(restre.spriteLoad("fireBand", "Graphics/spellBand", 8, 8, 8), true, true, true)
 spellBand:color(Color.WHITE, Color.ORANGE)
 spellBand:alpha(1, 0)
 spellBand:additive(true)

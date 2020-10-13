@@ -28,7 +28,7 @@ registercallback("onNPCDeathProc", function(npc, actor)
 end)
 
 local sprites = {
-    idle = Sprite.load("catalystIdle", "Graphics/catalyst", 4, 5, 4),
+    idle = restre.spriteLoad("catalystIdle", "Graphics/catalyst", 4, 5, 4),
 }
 
 local players = ParentObject.find("actors", "vanilla")

@@ -23,7 +23,7 @@ egg:setLog{
 local enemies = ParentObject.find("enemies", "vanilla")
 
 local sprites = {
-    fireball = Sprite.load("Graphics/fireBall", 1, 7, 7),
+    fireball = restre.spriteLoad("Graphics/fireBall", 1, 7, 7),
     detonate = Sprite.find("EfExplosive", "vanilla"),
     damage = Sprite.find("EfFirey", "vanilla")
 }

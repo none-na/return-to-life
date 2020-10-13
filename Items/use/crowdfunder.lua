@@ -24,9 +24,9 @@ crowdfunder:setLog{
 local players = ParentObject.find("actors", "vanilla")
 
 local sprites = {
-    idle = Sprite.load("goldGatIdle", "Graphics/crowdfunderOff", 8, 4, 4),
-    firing = Sprite.load("goldGatShoot1", "Graphics/crowdfunderOn", 8, 4, 6),
-    mask = Sprite.load("goldGatMask", "Graphics/crowdfunderMask", 1, 4, 4),
+    idle = restre.spriteLoad("goldGatIdle", "Graphics/crowdfunderOff", 8, 4, 4),
+    firing = restre.spriteLoad("goldGatShoot1", "Graphics/crowdfunderOn", 8, 4, 6),
+    mask = restre.spriteLoad("goldGatMask", "Graphics/crowdfunderMask", 1, 4, 4),
     impact = Sprite.find("Sparks5", "vanilla")
 }
 

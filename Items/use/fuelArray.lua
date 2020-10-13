@@ -63,9 +63,9 @@ local pod = Object.find("Base", "vanilla")
 local player = Object.find("P", "vanilla")
 
 local sprites = {
-    open = Sprite.load("BaseOpen", "Graphics/podOpen1", 11, 0, 46),
-    fullyOpen = Sprite.load("BaseOpen2", "Graphics/podOpen2", 2, 0, 46),
-    mask = Sprite.load("BaseMask", "Graphics/podMask", 1, 0, 46)
+    open = restre.spriteLoad("BaseOpen", "Graphics/podOpen1", 11, 0, 46),
+    fullyOpen = restre.spriteLoad("BaseOpen2", "Graphics/podOpen2", 2, 0, 46),
+    mask = restre.spriteLoad("BaseMask", "Graphics/podMask", 1, 0, 46)
 }
 
 local openSound = Sound.find("Chest1","vanilla")

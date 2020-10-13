@@ -21,8 +21,8 @@ disciple:setLog{
 local Projectile = require("Libraries.Projectile")
 
 local sprites = {
-    bullet = Sprite.load("EfWispBullet", "Graphics/wispBullet", 4, 13, 5),
-    mask = Sprite.load("EfWispBulletMask", "Graphics/wispMask", 1, 13, 5),
+    bullet = restre.spriteLoad("EfWispBullet", "Graphics/wispBullet", 4, 13, 5),
+    mask = restre.spriteLoad("EfWispBulletMask", "Graphics/wispMask", 1, 13, 5),
     impact = Sprite.find("WispG2Spark", "vanilla")
 }
 

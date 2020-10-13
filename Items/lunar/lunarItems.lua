@@ -4,7 +4,7 @@ local players = Object.find("P", "vanilla")
 -- ITEMS --
 IRL = itemremover
 
---local emptySprite = restre.spriteLoad("lunarempty", "Item/lunar/Graphics/empty", 1, 0, 0)
+--local emptySprite = restre.spriteLoad("lunarempty", "Graphics/empty", 1, 0, 0)
 
 --Shaped Glass--
 local LunarColor = Color.PURPLE
@@ -160,7 +160,7 @@ transcendence:setLog{
 }
 Lunar.register(transcendence)
 
-local shieldIcon = restre.spriteLoad("Item/lunar/Graphics/bug", 1, 7, 11)
+local shieldIcon = restre.spriteLoad("Graphics/bug", 1, 7, 11)
 
 transcendence:addCallback("pickup", function(player)
     if player:countItem(transcendence) == 1 then
@@ -262,7 +262,7 @@ flower:setLog{
 local regenDelay = 60 --The player's regenTimer will be set to this every time Corpsebloom heals the player.
 
 local healingOverTime = Buff.new("Corpsebloom")
-healingOverTime.sprite = restre.spriteLoad("corpseBuff", "Item/lunar/Graphics/flowerBuff", 10, 6, 6)
+healingOverTime.sprite = restre.spriteLoad("corpseBuff", "Graphics/flowerBuff", 10, 6, 6)
 healingOverTime.frameSpeed = regenDelay / (regenDelay*4)
 
 healingOverTime:addCallback("step", function(actor)
@@ -318,7 +318,7 @@ Lunar.register(flower)
 local strides = Item.new("Strides of Heresy")
 strides.displayName = "Strides of Heresy"
 strides.pickupText = "Replaces 3rd skill with Shadowfade."
-strides.sprite = restre.spriteLoad("Graphics/lunar/Graphicsstrides", 1, 16, 16)
+strides.sprite = restre.spriteLoad("Graphics/strides", 1, 16, 16)
 strides.color = LunarColor
 strides:setLog{
 	group = "end",
@@ -329,7 +329,7 @@ strides:setLog{
 	date = "12/31/2056"
 }
 
-local stridesIcon = restre.spriteLoad("Item/lunar/Graphics/shadowfade", 1, 0,0)
+local stridesIcon = restre.spriteLoad("Graphics/shadowfade", 1, 0,0)
 
 local stridesCooldown = 6 * 60
 
@@ -348,7 +348,7 @@ darkness:alpha(0,1,0)
 darkness:life(60, 60)
 
 local feather = ParticleType.new("feather")
-feather:sprite(restre.spriteLoad("Item/lunar/Graphics/feather", 1, 2.5, 5), false, false, false)
+feather:sprite(restre.spriteLoad("Graphics/feather", 1, 2.5, 5), false, false, false)
 feather:angle(0, 360, 1, 0, true)
 feather:direction(0, 360, 0, 0)
 feather:speed(0.2, 0.2, 0, 0)
@@ -356,7 +356,7 @@ feather:alpha(0,1,0)
 feather:life(60, 60)
 
 local shadowfade = Buff.new("Shadowfade")
-shadowfade.sprite = Sprite.find("Empty", "RoR2Demake")
+--shadowfade.sprite = Sprite.find("Empty", "RoR2Demake")
 shadowfade:addCallback("start", function(actor)
     local data = actor:getData()
     local self = actor:getAccessor()
@@ -474,7 +474,7 @@ Lunar.register(strides)
 --Visions of Heresy--
 local visions = Item.new("Visions of Heresy")
 visions.pickupText = "Replaces 1st skill with Hungering Gaze."
-visions.sprite = restre.spriteLoad("Graphics/lunar/Graphicsvisions", 1, 16, 16)
+visions.sprite = restre.spriteLoad("Graphics/visions", 1, 16, 16)
 visions.color = LunarColor
 visions:setLog{
 	group = "end",
@@ -485,12 +485,12 @@ visions:setLog{
 	date = "12/31/2056"
 }
 
-local visionsIcon = restre.spriteLoad("Item/lunar/Graphics/hungeringGaze", 1, 0,0)
+local visionsIcon = restre.spriteLoad("Graphics/hungeringGaze", 1, 0,0)
 
 local visionsSprites = {
-    idle = restre.spriteLoad("Item/lunar/Graphics/gaze", 2, 6.5, 1.5),
-    blast = restre.spriteLoad("Item/lunar/Graphics/gazeSparks", 3, 15, 5.5),
-    mask = restre.spriteLoad("Item/lunar/Graphics/gazeMask", 1, 5.5, 5.5)
+    idle = restre.spriteLoad("Graphics/gaze", 2, 6.5, 1.5),
+    blast = restre.spriteLoad("Graphics/gazeSparks", 3, 15, 5.5),
+    mask = restre.spriteLoad("Graphics/gazeMask", 1, 5.5, 5.5)
 }
 
 local gazeTrail = ParticleType.new("HungeringGaze")
@@ -700,7 +700,7 @@ effigy:setLog{
 -- Placed Effigy --
 
 local effigyDebuff = Buff.new("Grieving")
-effigyDebuff.sprite = restre.spriteLoad("grief", "Item/lunar/Graphics/effigyDebuff", 1, 5, 7)
+effigyDebuff.sprite = restre.spriteLoad("grief", "Graphics/effigyDebuff", 1, 5, 7)
 effigyDebuff:addCallback("start", function(actor)
 	actor:set("pHmax", actor:get("pHmax") - 0.5)
 	actor:set("armor", actor:get("armor") - 100)
@@ -712,8 +712,8 @@ end)
 local effigyRadius = 100
 local effigyObject = Object.new("Placed Effigy")
 local effigySprites = {
-    idle = restre.spriteLoad("effigySprite", "Item/lunar/Graphics/effigy", 5, 9, 26),
-    mask = restre.spriteLoad("effigyMask", "Item/lunar/Graphics/effigyMask", 1, 6, 13)
+    idle = restre.spriteLoad("effigySprite", "Graphics/effigy", 5, 9, 26),
+    mask = restre.spriteLoad("effigyMask", "Graphics/effigyMask", 1, 6, 13)
 }
 effigyObject.sprite = effigySprites.idle
 local effigySound = Sound.find("WormExplosion", "vanilla")
@@ -810,7 +810,7 @@ local hellFireLength = 8 -- The length of the Hellfire effect, in seconds.
 local hellfireDelay = 10 --How long, in frames, the game waits before performing another burst of damage.
 
 local hellfireBurning = Buff.new("Hellfire Tincture")
-hellfireBurning.sprite = emptySprite --get that default ass buff sprite outta here my boy
+--hellfireBurning.sprite = emptySprite --get that default ass buff sprite outta here my boy
 
 -- Hellfire Sounds
 local hellfireStart = Sound.find("WispBShoot1", "vanilla")
@@ -819,7 +819,7 @@ local hellfireStop = Sound.find("WormExplosion", "vanilla")
 
 -- Hellfire Particles
 local fireBurst = ParticleType.new("Hellfire")
-fireBurst:sprite(restre.spriteLoad("fire", "Item/lunar/Graphics/hellfireBurst", 7, 16, 20), true, true, false)
+fireBurst:sprite(restre.spriteLoad("fire", "Graphics/hellfireBurst", 7, 16, 20), true, true, false)
 fireBurst:life(30, 60)
 fireBurst:alpha(1, 0)
 fireBurst:additive(true)
@@ -917,7 +917,7 @@ tonicAffliction.sprite = restre.spriteLoad("tonicAffliction", "Graphics/tonicAff
 tonicAffliction.color = Color.BLACK
 
 local tonicBuff = Buff.new("tonicBuff")
-tonicBuff.sprite = restre.spriteLoad("EfBuffTonic", "Item/lunar/Graphics/tonicBuff", 1, 9, 7.5)
+tonicBuff.sprite = restre.spriteLoad("EfBuffTonic", "Graphics/tonicBuff", 1, 9, 7.5)
 
 tonicBuff:addCallback("start", function(player)
     player:set("damage", player:get("damage") + (2 * player:countItem(tonicAffliction))):set("damage", (player:get("damage") * 2))

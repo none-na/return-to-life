@@ -66,7 +66,7 @@ wings:addCallback("step", function(self)
 end)
 
 local wingBuff = Buff.new("chrysalisBuff")
-wingBuff.sprite = restre.spriteLoad("chrysalisBuffSpr", "Graphics/empty", 1, 0, 0)
+--wingBuff.sprite = restre.spriteLoad("chrysalisBuffSpr", "Graphics/empty", 1, 0, 0)
 
 wingBuff:addCallback("start", function(player)
     chrysalisHold[player] = 0

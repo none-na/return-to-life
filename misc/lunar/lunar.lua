@@ -36,13 +36,18 @@ local Lunar = {}
 do
 	local lunar_coins = save.read("lunar_coins") or 0
 
+	local sync_lunar = CycloneLib.net.AutoPacket(function(player, coins)
+		if not player then return nil end
+		player:getData().lunar_coins = coins
+	end)
+
 	Lunar.isLocal = function(player)
 		return not net.online or player == net.localPlayer
 	end
 
 	Lunar.get = function(player)
-		if not player then return lunar_coins end
-		--return player:getData().lunar_coins or 0
+		if (not player) or Lunar.isLocal(player) then return lunar_coins end
+		return player:getData().lunar_coins or 0
 	end
 
 	Lunar.set = function(coins, player)
@@ -52,6 +57,7 @@ do
 		end
 		lunar_coins = coins
 		save.write("lunar_coins", lunar_coins)
+		sync_lunar(player, lunar_coins)
 	end
 
 	Lunar.shift = function(coins, player)
@@ -63,6 +69,19 @@ do
 	Lunar.remove = function(coins, player)
 		Lunar.shift(-coins, player)
 	end
+
+	local synced = 0
+	callback.register("onStep", function()
+		if synced > 2 then return nil end
+		if synced == 2 then
+			for _,player in ipairs(misc.players) do
+				if Lunar.isLocal(player) then
+					sync_lunar(player, Lunar.get(player))
+				end
+			end
+		end
+		synced = synced + 1
+	end)
 end
 
 callback.register("onHUDDraw", function()
@@ -179,10 +198,14 @@ lunarcoin.pickupText = "A strange currency. Maybe you can use it somewhere...?"
 lunarcoin.sprite = sprites.coin
 lunarcoin.color = constants.color
 
+local sync_lunarpick = CycloneLib.net.AutoPacket(function(player)
+	player:removeItem(lunarcoin)
+end)
+
 lunarcoin:addCallback("pickup", function(player)
 	if Lunar.isLocal(player) then
-		Lunar.give(1)
-		player:removeItem(lunarcoin)
+		Lunar.give(1, player)
+		sync_lunarpick(player)
 	end
 end)
 
@@ -239,31 +262,37 @@ end
 
 -- Shrine of Order
 
+local sync_sequence = CycloneLib.net.AutoPacket(function(player, pool_index, item)
+	local pool = order_pools[pool_index]
+
+	local total = 0
+	for _,item in ipairs(pool:toList()) do
+		local count = player:countItem(item)
+		if count > 0 then
+			total = total + count
+			player:removeItem(item, count)
+		end
+	end
+	player:giveItem(item, total)
+end)
+
 local function sequence(player)
-	for _,pool in ipairs(order_pools) do
+	for pool_index,pool in ipairs(order_pools) do
 		local items = {}
-		local counts = {}
+		--local counts = {}
 		for _,item in ipairs(pool:toList()) do
 			if not item.isUseItem then
 				local count = player:countItem(item)
 				if count > 0 then
 					table.insert(items, item)
-					table.insert(counts, count)
+					--table.insert(counts, count)
 				end
 			end
 		end
 
 		local item = table.irandom(items)
-
 		if item then
-			local total = 0
-			for i,item in ipairs(items) do
-				local count = counts[i]
-				total = total + count
-				player:removeItem(item, count)
-			end
-
-			player:giveItem(item, total)
+			sync_sequence(player, pool_index, item)
 		end
 	end
 end
@@ -278,7 +307,7 @@ shrineorder:addCallback("create", function(i_shrineorder)
 end)
 
 shrineorder:addCallback("step", function(i_shrineorder)
-	if i_shrineorder:getAlarm(0) == 1 then
+	if net.host and i_shrineorder:getAlarm(0) == 1 then
 		local player = Object.findInstance(i_shrineorder:get("activator"))
 		if isa(player, "PlayerInstance") then
 			sequence(player)

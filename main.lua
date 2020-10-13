@@ -7,7 +7,6 @@ if (not restre) or (not restre.valid()) then
 end
 
 restre.require("libraries/cyclonelib/main")
-restre.require("libraries/MapObject")
 
 restre.require("misc/title_screen/title_screen")
 restre.require("misc/teleporter_effects/teleporter_effects")

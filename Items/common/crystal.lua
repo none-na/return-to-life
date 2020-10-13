@@ -19,7 +19,7 @@ crystal:setLog{
 
 local effectRange = 30
 local proc = restre.spriteLoad("Graphics/crystalBonus", 5, 5.5, 5.5)
-local procSound = restre.soundLoad("Sounds/SFX/crystal.ogg")
+local procSound = restre.soundLoad("Sounds/crystal.ogg")
 local sparks = Object.find("EfSparks", "vanilla")
 
 callback.register("onHit", function(damager, hit, x, y)

@@ -76,7 +76,7 @@ Clover.pickupText = "Luck is on your side."
 
 Clover.sprite = restre.spriteLoad("Graphics/clover.png", 1, 16, 16)
 
-local cloverSound = restre.soundLoad("clover","Sounds/SFX/clover.ogg")--Sound.find("Use", "vanilla")
+local cloverSound = restre.soundLoad("clover","Sounds/clover.ogg")--Sound.find("Use", "vanilla")
 local shamrock = ParticleType.new("shamrock")
 shamrock:sprite(restre.spriteLoad("Graphics/shamrock", 1, 5, 5), false, false, false)
 shamrock:angle(0, 360, 1, 0, true)

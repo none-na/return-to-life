@@ -20,7 +20,7 @@ elephant:setLog{
     date = "--/--/2056"
 }
 
-local sound = restre.soundLoad("elephant", "Sounds/SFX/elephant.ogg")
+local sound = restre.soundLoad("elephant", "Sounds/elephant.ogg")
 
 local icon = restre.spriteLoad("Graphics/elephantBuff", 1, 9, 4.5)
 

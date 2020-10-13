@@ -20,7 +20,7 @@ warhorn:setLog{
 local warhornBuff = Buff.new("burstAttackSpeed")
 warhornBuff.sprite = restre.spriteLoad("EfWarhornBuff","Graphics/warhorn", 1, 9, 7.5)
 
-local procSound = restre.soundLoad("Warhorn", "Sounds/SFX/warhorn.ogg")
+local procSound = restre.soundLoad("Warhorn", "Sounds/warhorn.ogg")
 
 local circle = Object.find("EfCircle", "vanilla")
 

@@ -6,7 +6,7 @@
 local warhorn = Item("War Horn")
 warhorn.pickupText = "Activating your Use Item gives you a burst of attack speed."
 
-warhorn.sprite = Sprite.load("Items/uncommon/Graphics/warhorn.png", 1, 16, 16)
+warhorn.sprite = restre.spriteLoad("Graphics/warhorn.png", 1, 16, 16)
 warhorn:setTier("uncommon")
 
 warhorn:setLog{

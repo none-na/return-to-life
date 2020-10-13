@@ -6,7 +6,7 @@
 local fireRing = Item("Kjaro's Band")
 fireRing.pickupText = "Chance on hit to cast a runic fire tornado."
 
-fireRing.sprite = Sprite.load("Items/uncommon/Graphics/fireRing.png", 1, 16, 16)
+fireRing.sprite = restre.spriteLoad("Graphics/fireRing.png", 1, 16, 16)
 fireRing:setTier("uncommon")
 
 fireRing:setLog{

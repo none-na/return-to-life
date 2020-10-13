@@ -6,7 +6,7 @@
 local vultures = Item("Wake of Vultures")
 vultures.pickupText = "Steal the power of slain elites."
 
-vultures.sprite = Sprite.load("Items/rare/Graphics/wakeOfVultures.png", 1, 16, 16)
+vultures.sprite = restre.spriteLoad("Graphics/wakeOfVultures.png", 1, 16, 16)
 vultures:setTier("rare")
 
 vultures:setLog{

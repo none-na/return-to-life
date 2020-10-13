@@ -6,7 +6,7 @@
 local iceRing = Item("Runald's Band")
 iceRing.pickupText = "Chance on hit to cast a slowing runic ice blast."
 
-iceRing.sprite = Sprite.load("Items/uncommon/Graphics/iceRing.png", 1, 16, 16)
+iceRing.sprite = restre.spriteLoad("Graphics/iceRing.png", 1, 16, 16)
 iceRing:setTier("uncommon")
 
 iceRing:setLog{

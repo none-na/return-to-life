@@ -6,7 +6,7 @@
 local elephant = Item("Jade Elephant")
 elephant.pickupText = "Gain massive armor for 5 seconds."
 
-elephant.sprite = Sprite.load("Items/use/Graphics/elephant.png", 2, 16, 16)
+elephant.sprite = restre.spriteLoad("Graphics/elephant.png", 2, 16, 16)
 elephant:setTier("use")
 
 elephant.isUseItem = true

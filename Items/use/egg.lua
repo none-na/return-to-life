@@ -6,7 +6,7 @@
 local egg = Item("Volcanic Egg")
 egg.pickupText = "Transform into a draconic fireball, damaging enemies as you pass."
 
-egg.sprite = Sprite.load("Items/use/Graphics/egg.png", 2, 14, 16)
+egg.sprite = restre.spriteLoad("Graphics/egg.png", 2, 14, 16)
 
 egg.isUseItem = true
 egg.useCooldown = 30

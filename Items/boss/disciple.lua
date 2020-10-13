@@ -6,7 +6,7 @@
 local disciple = Item("Little Disciple")
 disciple.pickupText = "Fire tracking Wisps while moving."
 
-disciple.sprite = Sprite.load("Items/boss/Graphics/disciple.png", 1, 16, 16)
+disciple.sprite = restre.spriteLoad("Graphics/disciple.png", 1, 16, 16)
 --disciple:setTier("rare")
 disciple.color = "y"
 

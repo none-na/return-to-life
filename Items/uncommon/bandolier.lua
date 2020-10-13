@@ -6,7 +6,7 @@
 local bandolier = Item("Bandolier")
 bandolier.pickupText = "Chance on kill to drop an ammo pack that resets cooldowns."
 
-bandolier.sprite = Sprite.load("Items/uncommon/Graphics/bandolier.png", 1, 16, 16)
+bandolier.sprite = restre.spriteLoad("Graphics/bandolier.png", 1, 16, 16)
 
 bandolier:setTier("uncommon")
 bandolier:setLog{

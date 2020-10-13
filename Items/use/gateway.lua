@@ -6,7 +6,7 @@
 local gateway = Item("Eccentric Vase")
 gateway.pickupText = "Create a quantum tunnel between two locations."
 
-gateway.sprite = Sprite.load("Items/use/Graphics/gateway.png", 2, 12, 16)
+gateway.sprite = restre.spriteLoad("Graphics/gateway.png", 2, 12, 16)
 gateway:setTier("use")
 
 gateway.isUseItem = true

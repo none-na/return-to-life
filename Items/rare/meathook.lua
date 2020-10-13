@@ -6,7 +6,7 @@
 local meathook = Item("Sentient Meat Hook")
 meathook.pickupText = "Chance to hook all nearby enemies."
 
-meathook.sprite = Sprite.load("Items/rare/Graphics/meathook.png", 1, 16, 16)
+meathook.sprite = restre.spriteLoad("Graphics/meathook.png", 1, 16, 16)
 
 meathook:setTier("rare")
 meathook:setLog{

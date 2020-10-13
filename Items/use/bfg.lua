@@ -6,7 +6,7 @@
 local bfg = Item("Preon Accumulator")
 bfg.pickupText = "Fire a ball of energy that electrocutes nearby enemies before detonating."
 
-bfg.sprite = Sprite.load("Items/use/Graphics/bfg.png", 2, 16, 16)
+bfg.sprite = restre.spriteLoad("Graphics/bfg.png", 2, 16, 16)
 bfg:setTier("use")
 
 bfg.isUseItem = true

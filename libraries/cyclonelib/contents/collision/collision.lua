@@ -14,11 +14,12 @@ local MAP_OBJECTS = {
 local collision_object = Object.new("collider")
 local collision_instance = nil
 local function refreshCollisionInstance()
-	collision_instance = collision_object:create(0,0)
+	collision_instance = collision_object:create(0,0):set("persistent", 1)
 	collision_instance.visible = false
 	collision_instance.mask = resources.sprites.empty_standard
 end
-registercallback("onStageEntry", refreshCollisionInstance)
+callback.register("onGameStart", refreshCollisionInstance)
+--callback.register("onStageEntry", refreshCollisionInstance)
 
 local collision = {}
 

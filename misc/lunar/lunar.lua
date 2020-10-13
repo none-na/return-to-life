@@ -1,4 +1,5 @@
 if not restre.depends("CycloneLib.net") then return nil end
+if not restre.depends("MapObject") then return nil end
 
 local constants = {
 	color = Color.fromRGB(128, 142, 255),
@@ -17,7 +18,7 @@ local sprites = {
 
 	coin    = restre_spriteLoad("lunarCoin", 1, 10, 10),
 	coin_ui = restre_spriteLoad("coinUI", 1, 2, 11),
-	bud     = restre_spriteLoad("lunarBud", 5, 10, 14),
+	bud     = restre_spriteLoad("lunarBud", 5, 11, 14),
 	shrine  = restre_spriteLoad("orderShrine", 6, 10, 28),
 }
 
@@ -224,11 +225,12 @@ end)
 local lunarbud_smoke = ParticleType.find("Dust2", "Vanilla")
 local command = Artifact.find("Command", "Vanilla")
 
-local lunarbud = Object.base("Chest", "LunarBud")
+local lunarbud, lunarbud_interactable = MapObject.new("LunarBud")
 lunarbud.sprite = sprites.bud
 
 lunarbud:addCallback("create", function(i_lunarbud)
 	i_lunarbud:set("cost", constants.bud_base)
+	i_lunarbud:set("cost_color", "b")
 	i_lunarbud:set("text", "to open the Lunar Pod")
 	i_lunarbud:set("sound", sounds.bud.id)
 end)
@@ -251,9 +253,6 @@ lunarbud:addCallback("draw", function(i_lunarbud)
 		1
 	)
 end)
-
-local lunarbud_interactable = Interactable.new(lunarbud, "LunarBudInteractable")
-lunarbud_interactable.spawnCost = constants.bud_spawncost
 
 for _,stage in ipairs(Stage.findAll("Vanilla")) do
 	stage.interactables:add(lunarbud_interactable)

@@ -28,7 +28,7 @@ local hookChance = function(hookCount)
     return ((1.0 - 100.0 / (100.0 + 20.0 * hookCount)) * 100.0)
 end
 
-hook.sprite = restre_spriteLoad("rare/Graphics/meatHookSprite", 1, 0, 8)
+hook.sprite = restre_spriteLoad("Graphics/meatHookSprite", 1, 0, 8)
 
 local playerObject = Object.find("P")
 

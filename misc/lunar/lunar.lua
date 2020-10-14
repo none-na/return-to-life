@@ -1,8 +1,11 @@
 if not restre.depends("CycloneLib.net") then return nil end
 if not restre.depends("MapObject") then return nil end
+if not restre.depends("CycloneLib.graphics") then return nil end
 
 local constants = {
 	color = Color.fromRGB(128, 142, 255),
+	text_color = "b",
+	sink = 0,
 
 	coin_chance = 0.5/100,  -- 0.5%
 
@@ -26,6 +29,7 @@ local sounds = {
 	drop   = Sound.find("Revive", "Vanilla"),
 	bud    = Sound.find("Chest0", "Vanilla"),
 	shrine = Sound.find("Shrine1", "Vanilla"),
+	pickup = Sound.find("Pickup", "Vanilla"),
 
 	obliterate = restre_soundLoad("eradicate")
 }
@@ -141,7 +145,10 @@ do
 	end
 
 	local syncGiveItem = CycloneLib.net.AutoPacket(function(player, item, i_item)
-		if i_item then i_item:destroy() end
+		if i_item and i_item:isValid() then
+			i_item:set("used", 1)
+			i_item:set("sound_played", 1)
+		end
 		giveItem(player, item)
 	end)
 
@@ -154,9 +161,31 @@ do
 				i_item:setAlarm(0, i_item:getAlarm(0) + 1)
 				local player = o_player:findNearest(i_item.x, i_item.y)
 				if player:collidesWith(i_item, player.x, player.y) then
-					if player:control("enter") == input.PRESSED then
+					if player:control("swap") == input.PRESSED then
 						syncGiveItem(player, i_item:getItem(), i_item)
+						sounds.pickup:play(1, 1)
 					end
+				end
+			end
+		end
+	end)
+	callback.register("onDraw", function()
+		for _,i_item in ipairs(p_item:findAll()) do
+			local data = i_item:getData()
+			if data.lunar and i_item:get("used") ~= 1 then
+				local player = o_player:findNearest(i_item.x, i_item.y)
+				if player:collidesWith(i_item, player.x, player.y) then
+					local text = string.format(
+						"&w&Press &y&'%s'&w& to pick up &%s&%s&w&",
+						input.getControlString("swap", player),
+						constants.text_color,
+						i_item:getItem():getName()
+					)
+					CycloneLib.graphics.printColor(
+						text,
+						i_item.x,
+						i_item.y + i_item.sprite.height + constants.sink
+					)
 				end
 			end
 		end
@@ -230,16 +259,24 @@ lunarbud.sprite = sprites.bud
 
 lunarbud:addCallback("create", function(i_lunarbud)
 	i_lunarbud:set("cost", constants.bud_base)
-	i_lunarbud:set("cost_color", "b")
+	i_lunarbud:set("cost_color", constants.text_color)
 	i_lunarbud:set("text", "to open the Lunar Pod")
 	i_lunarbud:set("sound", sounds.bud.id)
 end)
 
+MapObject.addCallback(lunarbud, "canActivate", function(i_lunarbud, player)
+	return Lunar.get(player) >= i_lunarbud:get("cost")
+end)
+
 lunarbud:addCallback("step", function(i_lunarbud)
-	if net.host then
-		if i_lunarbud:getAlarm(0) == 1 then
+	if i_lunarbud:getAlarm(0) == 1 then
+		if net.host then
 			local object = command.active and lunar_pool:getCrate() or lunar_pool:roll()
 			object:create(i_lunarbud.x, i_lunarbud.y - i_lunarbud.sprite.height)
+		end
+		local player = Object.findInstance(i_lunarbud:get("activator") or -1)
+		if Lunar.isLocal(player) then
+			Lunar.remove(i_lunarbud:get("cost"), player)
 		end
 	end
 end)
@@ -254,6 +291,7 @@ lunarbud:addCallback("draw", function(i_lunarbud)
 	)
 end)
 
+lunarbud_interactable.spawnCost = constants.bud_spawncost
 for _,stage in ipairs(Stage.findAll("Vanilla")) do
 	stage.interactables:add(lunarbud_interactable)
 end
@@ -296,27 +334,33 @@ local function sequence(player)
 	end
 end
 
-local shrineorder = Object.base("Chest", "ShrineOfOrder")
+local shrineorder, shrineorder_interactable = MapObject.new("ShrineOfOrder")
 shrineorder.sprite = sprites.shrine
 
 shrineorder:addCallback("create", function(i_shrineorder)
 	i_shrineorder:set("cost", constants.shrine_base)
+	i_shrineorder:set("cost_color", constants.text_color)
 	i_shrineorder:set("text", "to be sequenced")
 	i_shrineorder:set("sound", sounds.shrine.id)
 end)
 
+MapObject.addCallback(shrineorder, "canActivate", function(i_shrineorder, player)
+	return Lunar.get(player) >= i_shrineorder:get("cost")
+end)
+
 shrineorder:addCallback("step", function(i_shrineorder)
-	if net.host and i_shrineorder:getAlarm(0) == 1 then
+	if  i_shrineorder:getAlarm(0) == 1 then
 		local player = Object.findInstance(i_shrineorder:get("activator"))
-		if isa(player, "PlayerInstance") then
+		if net.host then
 			sequence(player)
+		end
+		if Lunar.isLocal(player) then
+			Lunar.remove(i_shrineorder:get("cost"), player)
 		end
 	end
 end)
 
-local shrineorder_interactable = Interactable.new(shrineorder, "ShrineOfOrderInteractable")
 shrineorder_interactable.spawnCost = constants.shrine_spawncost
-
 for _,stage in ipairs(Stage.findAll("Vanilla")) do
 	stage.interactables:add(shrineorder_interactable)
 end

@@ -13,6 +13,7 @@ restre.require("misc/title_screen/title_screen")
 restre.require("misc/teleporter_effects/teleporter_effects")
 restre.require("misc/flight_manager")
 restre.require("misc/lunar/lunar")
+restre.require("misc/enemy_shields")
 
 restre.require("global-items/main")
 restre.require("Items/itemLoader")

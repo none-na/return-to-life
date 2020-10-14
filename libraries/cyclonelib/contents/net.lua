@@ -64,6 +64,7 @@ local function toNetArgs(...)
 			n = n + 3
 		elseif isa(args[i], "Instance") then
 			local status, net_instance = pcall(args[i].getNetIdentity, args[i])
+			if not status then print("AutoPacket: " .. net_instance) end
 			table.insert(net_args, status and net_instance or 0)
 			decode_string = decode_string .. "i"
 			n = n + 1

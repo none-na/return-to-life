@@ -268,7 +268,7 @@ MapObject.addCallback(lunarbud, "canActivate", function(i_lunarbud, player)
 end)
 
 lunarbud:addCallback("step", function(i_lunarbud)
-	if i_lunarbud:getAlarm(0) == 1 then
+	if MapObject.shouldActivate(i_lunarbud) then
 		if net.host then
 			local object = command.active and lunar_pool:getCrate() or lunar_pool:roll()
 			object:create(i_lunarbud.x, i_lunarbud.y - i_lunarbud.sprite.height)
@@ -348,7 +348,7 @@ MapObject.addCallback(shrineorder, "canActivate", function(i_shrineorder, player
 end)
 
 shrineorder:addCallback("step", function(i_shrineorder)
-	if  i_shrineorder:getAlarm(0) == 1 then
+	if MapObject.shouldActivate(i_shrineorder) then
 		local player = Object.findInstance(i_shrineorder:get("activator"))
 		if net.host then
 			sequence(player)

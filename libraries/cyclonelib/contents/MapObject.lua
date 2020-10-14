@@ -57,6 +57,10 @@ MapObject.addCallback = function(object, name, callback)
 	callbacks[object][name] = callback
 end
 
+MapObject.shouldActivate = function(instance)
+	return instance:getAlarm(0) == 1
+end
+
 MapObject.new = function(name)
 	local object = Object.base("MapObject", name)
 
@@ -152,5 +156,6 @@ MapObject.new = function(name)
 	return object, interactable
 end
 
+export("CycloneLib.MapObject", MapObject)
 export("MapObject", MapObject)
 return MapObject

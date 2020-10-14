@@ -55,8 +55,7 @@ do
 		return player:getData().lunar_coins or 0
 	end
 
-	Lunar.set = function(coins, player)
-		-- It should be able to take nil as player but it's safer this way
+	Lunar.set = function(player, coins)
 		if not Lunar.isLocal(player) then
 			error("Modification of non-local coins")
 		end
@@ -65,14 +64,14 @@ do
 		sync_lunar(player, lunar_coins)
 	end
 
-	Lunar.shift = function(coins, player)
-		Lunar.set(Lunar.get(player) + coins, player)
+	Lunar.shift = function(player, coins)
+		Lunar.set(player, Lunar.get(player) + coins)
 	end
-	Lunar.give = function(coins, player)
-		Lunar.shift(coins, player)
+	Lunar.give = function(player, coins)
+		Lunar.shift(player, coins)
 	end
-	Lunar.remove = function(coins, player)
-		Lunar.shift(-coins, player)
+	Lunar.remove = function(player, coins)
+		Lunar.shift(player, -coins)
 	end
 
 	local synced = 0
@@ -92,7 +91,7 @@ end
 callback.register("onHUDDraw", function()
 	if misc.hud:get("show_gold") == 1 then
 		local w, h = graphics.getGameResolution()
-		local coins = Lunar.get()
+		local coins = Lunar.get(net.localPlayer or misc.players[1])
 		graphics.drawImage{
 			image = sprites.coin_ui,
 			x = 13,
@@ -234,7 +233,7 @@ end)
 
 lunarcoin:addCallback("pickup", function(player)
 	if Lunar.isLocal(player) then
-		Lunar.give(1, player)
+		Lunar.give(player, 1)
 		sync_lunarpick(player)
 	end
 end)
@@ -276,7 +275,7 @@ lunarbud:addCallback("step", function(i_lunarbud)
 		end
 		local player = Object.findInstance(i_lunarbud:get("activator") or -1)
 		if Lunar.isLocal(player) then
-			Lunar.remove(i_lunarbud:get("cost"), player)
+			Lunar.remove(player, i_lunarbud:get("cost"))
 		end
 	end
 end)
@@ -355,7 +354,7 @@ shrineorder:addCallback("step", function(i_shrineorder)
 			sequence(player)
 		end
 		if Lunar.isLocal(player) then
-			Lunar.remove(i_shrineorder:get("cost"), player)
+			Lunar.remove(player, i_shrineorder:get("cost"))
 		end
 	end
 end)

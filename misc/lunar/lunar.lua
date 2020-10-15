@@ -50,6 +50,10 @@ do
 		return not net.online or player == net.localPlayer
 	end
 
+	Lunar.getLocal = function()
+		return net.localPlayer or misc.players[1]
+	end
+
 	Lunar.get = function(player)
 		if (not player) or Lunar.isLocal(player) then return lunar_coins end
 		return player:getData().lunar_coins or 0
@@ -367,4 +371,5 @@ end
 
 -- Export
 
-export("Lunar", LunarItem)
+setmetatable(Lunar, { __index = LunarItem })
+export("Lunar", Lunar)

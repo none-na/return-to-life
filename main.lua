@@ -15,5 +15,7 @@ restre.require("misc/flight_manager")
 restre.require("misc/lunar/lunar")
 restre.require("misc/enemy_shields")
 
+restre.require("interactables/obelisk")
+
 restre.require("global-items/main")
 restre.require("Items/itemLoader")

@@ -13,6 +13,8 @@ local DEFAULT_COST_SYMBOL = "$"
 local SPRITE_SPEED = 0.2
 local CLIMB = 24
 local SINK = 8
+local ACTIVATE_DELAY = 30
+local COOLDOWN = 60
 
 local fireworks = Item.find("Bundle of Fireworks", "Vanilla")
 local o_firework = Object.find("EfFirework", "Vanilla")
@@ -44,12 +46,11 @@ local function activate(instance, player)
 	playID(instance:get("sound"))
 	local shake = instance:get("shake")
 	if shake > 0 then misc.shakeScreen(shake) end
-	instance:setAlarm(0, 30 - 1)
+	instance:setAlarm(0, instance:get("activate_delay") - 1)
 end
 
 local sync_activate = CycloneLib.net.AutoPacket(function(instance, player)
-	if not instance then print("No inst") end
-	if (not instance) or (not player) then print("Not Synced") ; return nil end
+	if (not instance) or (not player) then return nil end
 	activate(instance, player)
 end)
 
@@ -59,6 +60,10 @@ end
 
 MapObject.shouldActivate = function(instance)
 	return instance:getAlarm(0) == 1
+end
+
+MapObject.beginActivate = function(instance)
+	return instance:getAlarm(0) == (instance:get("activate_delay") - 2)
 end
 
 MapObject.new = function(name)
@@ -77,30 +82,50 @@ MapObject.new = function(name)
 		:set("fail_sound", s_fail.id)
 		:set("proc_fireworks", 1)
 		:set("shake", 1)
+		:set("charges", 0)
+		:set("activate_delay", ACTIVATE_DELAY)
+		:set("cooldown", COOLDOWN)
 
 		instance.y = CycloneLib.collision.getGround(instance.x, instance.y)
 	end)
 
 	object:addCallback("step", function(instance)
-		local alarm = instance:getAlarm(0)
-		if alarm >= 0 then instance:setAlarm(0, alarm - 1) end
+		for i=0,1 do
+			local alarm = instance:getAlarm(i)
+			if alarm >= 0 then instance:setAlarm(i, alarm - 1) end
+		end
 
-		if instance:get("active") == 0 then
-			local player = o_player:findNearest(instance.x, instance.y)
-			if player:collidesWith(instance, player.x, player.y) then
-				instance:set("myplayer", player.id)
-				if player:control("enter") == input.PRESSED and player:get("activity") == 0 then
-					if callbacks[object].canActivate(instance, player) then
-						sync_activate(instance, player)
-					else
-						playID(instance:get("fail_sound"))
+		local ac = instance:getAccessor()
+		if ac.active == 0 then
+			for _, player in ipairs(misc.players) do
+				if player:collidesWith(instance, player.x, player.y) then
+					ac.myplayer = player.id
+					if player:control("enter") == input.PRESSED and player:get("activity") == 0 then
+						if callbacks[object].canActivate(instance, player) then
+							sync_activate(instance, player)
+						else
+							playID(ac.fail_sound)
+						end
 					end
 				end
 			end
 		else
+			if ac.active == 1 then
+				ac.active = 2
+			end
 			if instance.subimage + instance.spriteSpeed >= instance.sprite.frames then
-				instance.subimage = instance.sprite.frames
+				if ac.charges > 0 then
+					ac.charges = ac.charges - 1
+					instance:setAlarm(1, instance:get("cooldown") - 1)
+				else
+					instance.subimage = instance.sprite.frames
+					-- Death
+				end
 				instance.spriteSpeed = 0
+			end
+			if instance:getAlarm(1) == 1 then
+				ac.active = 0
+				instance.subimage = 1
 			end
 		end
 	end)
@@ -110,16 +135,21 @@ MapObject.new = function(name)
 			local player = o_player:findNearest(instance.x, instance.y)
 			if player:collidesWith(instance, player.x, player.y) then
 				local text = string.format(
-					"&%s&Press &y&'%s'&%s& %s &%s&(%s%s)&%s&",
+					"&%s&Press &y&'%s'&%s& %s",
 					DEFAULT_COLOR,
 					input.getControlString("enter", player),
 					DEFAULT_COLOR,
-					instance:get("text") or "to activate",
-					instance:get("cost_color") or DEFAULT_COST_COLOR,
-					instance:get("cost_symbol") or DEFAULT_COST_SYMBOL,
-					instance:get("cost") or 0,
-					DEFAULT_COLOR
+					instance:get("text") or "to activate"
 				)
+				if (instance:get("cost") or 0) > 0 then
+					text = text .. string.format(
+						" &%s&(%s%s)&%s&",
+						instance:get("cost_color") or DEFAULT_COST_COLOR,
+						instance:get("cost_symbol") or DEFAULT_COST_SYMBOL,
+						instance:get("cost") or 0,
+						DEFAULT_COLOR
+					)
+				end
 				graphics.alpha(1)
 				CycloneLib.graphics.printColor(
 					text,

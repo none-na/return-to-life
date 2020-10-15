@@ -10,6 +10,17 @@ local FONT_OFFSET = {
 
 local _graphics = {}
 
+-- Draws the rectangle exactly
+_graphics.rectangle = function(x1, y1, x2, y2, outline)
+	graphics.rectangle(x1, y1, x2 - 1, y2 - 1, outline)
+end
+
+-- Alternate rectangle notation
+_graphics.rect = function(x, y, w, h, outline)
+	_graphics.rectangle(x, y, x + w, y + h, outline)
+end
+
+-- Cleans color formatting from a string
 _graphics.cleanColor = function(text)
 	return text:gsub("&[^&]*&", "")
 end
@@ -47,6 +58,28 @@ _graphics.printColor = function(text, x, y, font)
 		y = y + h/2
 	end
 	--]]
+end
+
+-- Draws the instance exactly, only overriding the properties provided
+-- Also takes into account the visible variable
+_graphics.replicate = function(instance, properties)
+	local properties = properties or {}
+	if properties.visible or (not properties.visible and instance.visible) then
+		graphics.drawImage{
+			image = properties.image or instance.sprite,
+			x = properties.x or instance.x,
+			y = properties.y or instance.y,
+			subimage = properties.subimage or instance.subimage,
+			color = properties.color or instance.blendColor,
+			alpha = properties.alpha or instance.alpha,
+			angle = properties.angle or instance.angle,
+			width = properties.width,
+			height = properties.height,
+			xscale = properties.xscale or instance.xscale,
+			yscale = properties.yscale or instance.yscale,
+			scale = properties.scale,
+		}
+	end
 end
 
 

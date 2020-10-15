@@ -1,9 +1,9 @@
 -- CycloneLib - contents/collision/collision.lua
 
 -- Dependencies:
----- Nothing
+---- CycloneLib.resources
 
-local resources = restre_require("resources/resources")
+if not restre.depends("CycloneLib.resources") then return nil end
 
 local MAP_OBJECTS = {
 	Object.find("B"),
@@ -11,12 +11,12 @@ local MAP_OBJECTS = {
 	Object.find("BNoSpawn2"),
 	Object.find("BNoSpawn3"),
 }
-local collision_object = Object.new("collider")
+local collision_object = Object.new("CycloneLibCollider")
 local collision_instance = nil
 local function refreshCollisionInstance()
 	collision_instance = collision_object:create(0,0):set("persistent", 1)
 	collision_instance.visible = false
-	collision_instance.mask = resources.sprites.empty_standard
+	collision_instance.mask = CycloneLib.resources.white2x2
 end
 callback.register("onGameStart", refreshCollisionInstance)
 --callback.register("onStageEntry", refreshCollisionInstance)
@@ -142,4 +142,3 @@ end
 --#########--
 
 export("CycloneLib.collision", collision)
-export("CycloneLib.resources.collision", resources)

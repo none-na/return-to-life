@@ -9,8 +9,9 @@ if (not restre) or (not restre.valid()) then
     restre.cd("cyclonelib/", "main")
 end
 
+restre.require("contents/resources/resources")
 restre.require("contents/table")
-restre.require("contents/collision/collision")
+restre.require("contents/collision")
 restre.require("contents/misc")
 restre.require("contents/modloader")
 restre.require("contents/font")
